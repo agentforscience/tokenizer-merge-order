@@ -1,0 +1,13 @@
+{
+ "tokenizer": "DOMAIN",
+ "seed": 0,
+ "n_params": 23344640,
+ "steps": 1600,
+ "train_tokens": 52428800,
+ "train_sec": 1547.7340338230133,
+ "final_train_loss": 3.526812255382538,
+ "eval_general_bpb": 1.3551248408341292,
+ "eval_general_nll_per_token": 3.424655642620353,
+ "eval_domain_bpb": 1.2599182715883832,
+ "eval_domain_nll_per_token": 3.8477450936770947
+}

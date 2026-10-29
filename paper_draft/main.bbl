@@ -1,0 +1,175 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ali et~al.(2024)Ali, Fromm, Thellmann, Rutmann, L{\"u}bbering,
+  Leveling, Klug, Ebert, Doll, Buschhoff, et~al.]{ali2024tokenizer}
+Mehdi Ali, Michael Fromm, Klaudia Thellmann, Richard Rutmann, Max
+  L{\"u}bbering, Johannes Leveling, Katrin Klug, Jan Ebert, Niclas Doll,
+  Jasper~Schulze Buschhoff, et~al.
+\newblock Tokenizer choice for {LLM} training: Negligible or crucial?
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  NAACL 2024}, 2024.
+
+\bibitem[Beltagy et~al.(2019)Beltagy, Lo, and Cohan]{beltagy2019scibert}
+Iz~Beltagy, Kyle Lo, and Arman Cohan.
+\newblock {SciBERT}: A pretrained language model for scientific text.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}, pages 3615--3620, 2019.
+
+\bibitem[Bostrom and Durrett(2020)]{bostrom2020byte}
+Kaj Bostrom and Greg Durrett.
+\newblock Byte pair encoding is suboptimal for language model pretraining.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2020}, pages 4617--4624, 2020.
+
+\bibitem[Dernoncourt and Lee(2017)]{dernoncourt2017pubmed}
+Franck Dernoncourt and Ji~Young Lee.
+\newblock {PubMed} 200k {RCT}: a dataset for sequential sentence classification
+  in medical abstracts.
+\newblock In \emph{Proceedings of the Eighth International Joint Conference on
+  Natural Language Processing (IJCNLP)}, pages 308--313, 2017.
+
+\bibitem[Efron and Tibshirani(1994)]{efron1994introduction}
+Bradley Efron and Robert~J. Tibshirani.
+\newblock \emph{An Introduction to the Bootstrap}.
+\newblock Chapman and Hall/CRC, 1994.
+
+\bibitem[Gage(1994)]{gage1994new}
+Philip Gage.
+\newblock A new algorithm for data compression.
+\newblock \emph{The C Users Journal}, 12\penalty0 (2):\penalty0 23--38, 1994.
+
+\bibitem[Gall{\'e}(2019)]{galle2019investigating}
+Matthias Gall{\'e}.
+\newblock Investigating the effectiveness of {BPE}: The power of shorter
+  sequences.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing and the 9th International Joint Conference on
+  Natural Language Processing (EMNLP-IJCNLP)}, pages 1375--1381, 2019.
+
+\bibitem[Gao et~al.(2020)Gao, Biderman, Black, Golding, Hoppe, Foster, Phang,
+  He, Thite, Nabeshima, Presser, and Leahy]{gao2020pile}
+Leo Gao, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles
+  Foster, Jason Phang, Horace He, Anish Thite, Noa Nabeshima, Shawn Presser,
+  and Connor Leahy.
+\newblock The {Pile}: An 800{GB} dataset of diverse text for language modeling.
+\newblock \emph{arXiv preprint arXiv:2101.00027}, 2020.
+
+\bibitem[Goldman et~al.(2024)Goldman, Caciularu, Eyal, Cao, Szpektor, and
+  Tsarfaty]{goldman2024unpacking}
+Omer Goldman, Avi Caciularu, Matan Eyal, Kris Cao, Idan Szpektor, and Reut
+  Tsarfaty.
+\newblock Unpacking tokenization: Evaluating text compression and its
+  correlation with model performance.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2024}, 2024.
+
+\bibitem[Gu et~al.(2021)Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao, and
+  Poon]{gu2021domain}
+Yu~Gu, Robert Tinn, Hao Cheng, Michael Lucas, Naoto Usuyama, Xiaodong Liu,
+  Tristan Naumann, Jianfeng Gao, and Hoifung Poon.
+\newblock Domain-specific language model pretraining for biomedical natural
+  language processing.
+\newblock \emph{ACM Transactions on Computing for Healthcare}, 3\penalty0
+  (1):\penalty0 1--23, 2021.
+
+\bibitem[Gururangan et~al.(2020)Gururangan, Marasovi{\'c}, Swayamdipta, Lo,
+  Beltagy, Downey, and Smith]{gururangan2020don}
+Suchin Gururangan, Ana Marasovi{\'c}, Swabha Swayamdipta, Kyle Lo, Iz~Beltagy,
+  Doug Downey, and Noah~A. Smith.
+\newblock Don't stop pretraining: Adapt language models to domains and tasks.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 8342--8360, 2020.
+
+\bibitem[Holm(1979)]{holm1979simple}
+Sture Holm.
+\newblock A simple sequentially rejective multiple test procedure.
+\newblock \emph{Scandinavian Journal of Statistics}, 6\penalty0 (2):\penalty0
+  65--70, 1979.
+
+\bibitem[Kudo(2018)]{kudo2018subword}
+Taku Kudo.
+\newblock Subword regularization: Improving neural network translation models
+  with multiple subword candidates.
+\newblock In \emph{Proceedings of the 56th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 66--75, 2018.
+
+\bibitem[Loshchilov and Hutter(2019)]{loshchilov2019decoupled}
+Ilya Loshchilov and Frank Hutter.
+\newblock Decoupled weight decay regularization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Merity et~al.(2017)Merity, Xiong, Bradbury, and
+  Socher]{merity2017pointer}
+Stephen Merity, Caiming Xiong, James Bradbury, and Richard Socher.
+\newblock Pointer sentinel mixture models.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2017.
+
+\bibitem[Provilkov et~al.(2020)Provilkov, Emelianenko, and
+  Voita]{provilkov2020bpe}
+Ivan Provilkov, Dmitrii Emelianenko, and Elena Voita.
+\newblock {BPE}-dropout: Simple and effective subword regularization.
+\newblock In \emph{Proceedings of the 58th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1882--1892, 2020.
+
+\bibitem[Radford et~al.(2019)Radford, Wu, Child, Luan, Amodei, and
+  Sutskever]{radford2019language}
+Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya
+  Sutskever.
+\newblock Language models are unsupervised multitask learners.
+\newblock Technical report, OpenAI, 2019.
+
+\bibitem[Schmidt et~al.(2024)Schmidt, Reddy, Zhang, Alameddine, Uzan, Pinter,
+  and Tanner]{schmidt2024tokenization}
+Craig~W. Schmidt, Varshini Reddy, Haoran Zhang, Alec Alameddine, Omri Uzan,
+  Yuval Pinter, and Chris Tanner.
+\newblock Tokenization is more than compression.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2024.
+
+\bibitem[Sennrich et~al.(2016)Sennrich, Haddow, and Birch]{sennrich2016neural}
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 1715--1725, 2016.
+
+\bibitem[Socher et~al.(2013)Socher, Perelygin, Wu, Chuang, Manning, Ng, and
+  Potts]{socher2013recursive}
+Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher~D. Manning,
+  Andrew Ng, and Christopher Potts.
+\newblock Recursive deep models for semantic compositionality over a sentiment
+  treebank.
+\newblock In \emph{Proceedings of the 2013 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, pages 1631--1642, 2013.
+
+\bibitem[Xue et~al.(2022)Xue, Barua, Constant, Al-Rfou, Narang, Kale, Roberts,
+  and Raffel]{xue2022byt5}
+Linting Xue, Aditya Barua, Noah Constant, Rami Al-Rfou, Sharan Narang, Mihir
+  Kale, Adam Roberts, and Colin Raffel.
+\newblock {ByT5}: Towards a token-free future with pre-trained byte-to-byte
+  models.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  10:\penalty0 291--306, 2022.
+
+\bibitem[Zhang et~al.(2015)Zhang, Zhao, and LeCun]{zhang2015character}
+Xiang Zhang, Junbo Zhao, and Yann LeCun.
+\newblock Character-level convolutional networks for text classification.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, pages 649--657, 2015.
+
+\bibitem[Zouhar et~al.(2023)Zouhar, Meister, Gastaldi, Du, Sachan, and
+  Cotterell]{zouhar2023tokenization}
+Vil{\'e}m Zouhar, Clara Meister, Juan~Luis Gastaldi, Li~Du, Mrinmaya Sachan,
+  and Ryan Cotterell.
+\newblock Tokenization and the noiseless channel.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (ACL)}, pages 5184--5207, 2023.
+
+\end{thebibliography}

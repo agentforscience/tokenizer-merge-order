@@ -1,0 +1,145 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\bibstyle{plainnat}
+\citation{gage1994new,sennrich2016neural}
+\citation{radford2019language}
+\citation{bostrom2020byte,ali2024tokenizer}
+\citation{galle2019investigating,goldman2024unpacking}
+\citation{zouhar2023tokenization}
+\citation{provilkov2020bpe,kudo2018subword}
+\citation{beltagy2019scibert,gu2021domain}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{gage1994new}
+\citation{sennrich2016neural}
+\citation{radford2019language}
+\citation{bostrom2020byte}
+\citation{kudo2018subword}
+\citation{ali2024tokenizer}
+\citation{schmidt2024tokenization}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Study design. We train six byte-level BPE tokenizers (8,192 entries each) that differ only in merge order. Four change the \emph  {learning order}, which changes the vocabulary. Two keep \textsc  {Freq}\xspace  's exact merges and change only the \emph  {application order}, i.e.,\xspace  merge priority at encoding time. Every tokenizer is paired with an identical language model trained on the same text, and we evaluate it with tokenizer-independent bits-per-byte and with fine-tuned classification.\relax }}{2}{figure.caption.2}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:overview}{{1}{2}{Study design. We train six byte-level BPE tokenizers (8,192 entries each) that differ only in merge order. Four change the \emph {learning order}, which changes the vocabulary. Two keep \freq 's exact merges and change only the \emph {application order}, \ie merge priority at encoding time. Every tokenizer is paired with an identical language model trained on the same text, and we evaluate it with tokenizer-independent bits-per-byte and with fine-tuned classification.\relax }{figure.caption.2}{}}
+\citation{galle2019investigating}
+\citation{goldman2024unpacking}
+\citation{zouhar2023tokenization}
+\citation{provilkov2020bpe}
+\citation{kudo2018subword}
+\citation{xue2022byt5}
+\citation{beltagy2019scibert}
+\citation{gu2021domain}
+\citation{gururangan2020don}
+\citation{radford2019language}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{3}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{2}{3}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Method}{3}{section.3}\protected@file@percent }
+\newlabel{sec:method}{{3}{3}{Method}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Two kinds of merge order}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:formulation}{{3.1}{3}{Two kinds of merge order}{subsection.3.1}{}}
+\citation{merity2017pointer}
+\citation{dernoncourt2017pubmed}
+\citation{socher2013recursive}
+\citation{zhang2015character}
+\citation{dernoncourt2017pubmed}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces BPE training with a general selection rule\relax }}{4}{algorithm.1}\protected@file@percent }
+\newlabel{alg:bpe}{{1}{4}{BPE training with a general selection rule\relax }{algorithm.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The six merge-order conditions. All tokenizers have 8,192 entries and are trained on the same 50\,MB corpus. The application-order tokenizers share \textsc  {Freq}\xspace  's merges and vocabulary exactly.\relax }}{4}{table.caption.3}\protected@file@percent }
+\newlabel{tab:tokenizers}{{1}{4}{The six merge-order conditions. All tokenizers have 8,192 entries and are trained on the same 50\,MB corpus. The application-order tokenizers share \freq 's merges and vocabulary exactly.\relax }{table.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Six tokenizers}{4}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:tokenizers}{{3.2}{4}{Six tokenizers}{subsection.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Data and models}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:setup}{{3.3}{4}{Data and models}{subsection.3.3}{}}
+\citation{loshchilov2019decoupled}
+\citation{gao2020pile}
+\citation{zouhar2023tokenization}
+\citation{efron1994introduction}
+\citation{holm1979simple}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Evaluation}{5}{subsection.3.4}\protected@file@percent }
+\newlabel{sec:eval}{{3.4}{5}{Evaluation}{subsection.3.4}{}}
+\newlabel{eq:bpb}{{1}{5}{Evaluation}{equation.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{5}{section.4}\protected@file@percent }
+\newlabel{sec:results}{{4}{5}{Results}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Merge order changes segmentation drastically}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:intrinsics}{{4.1}{5}{Merge order changes segmentation drastically}{subsection.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Tokenizer intrinsics on held-out general / biomedical text. ``Top-1k whole'' is the share of the 1,000 most frequent words encoded as a single token. ``Vocab used'' is the share of the 8,192 entries that occur in 5M encoded tokens. ``Agree'' is segmentation agreement with \textsc  {Freq}\xspace  on general text. The application-order tokenizers share \textsc  {Freq}\xspace  's vocabulary but use only 21--41\% of it. Best value per column in \textbf  {bold}.\relax }}{6}{table.caption.4}\protected@file@percent }
+\newlabel{tab:intrinsics}{{2}{6}{Tokenizer intrinsics on held-out general / biomedical text. ``Top-1k whole'' is the share of the 1,000 most frequent words encoded as a single token. ``Vocab used'' is the share of the 8,192 entries that occur in 5M encoded tokens. ``Agree'' is segmentation agreement with \freq on general text. The application-order tokenizers share \freq 's vocabulary but use only 21--41\% of it. Best value per column in \textbf {bold}.\relax }{table.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Held-out bits-per-byte (lower is better; mean of 2 pre-training seeds) and relative change against \textsc  {Freq}\xspace  with 95\% paired-bootstrap CIs. All 10 comparisons are significant after Holm correction ($p_{\text  {Holm}} = 0.032$ for \textsc  {Domain}\xspace  on general text, $0.0025$ for all others). The seed standard deviation is at most 0.002 on general text and 0.016 on biomedical text. Best value per column in \textbf  {bold}.\relax }}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:bpb}{{3}{6}{Held-out bits-per-byte (lower is better; mean of 2 pre-training seeds) and relative change against \freq with 95\% paired-bootstrap CIs. All 10 comparisons are significant after Holm correction ($p_{\text {Holm}} = 0.032$ for \domain on general text, $0.0025$ for all others). The seed standard deviation is at most 0.002 on general text and 0.016 on biomedical text. Best value per column in \textbf {bold}.\relax }{table.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Merge order matters for language modeling}{6}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:lm}{{4.2}{6}{Merge order matters for language modeling}{subsection.4.2}{}}
+\citation{zouhar2023tokenization}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Compression predicts language-modeling quality. Each point is one tokenizer (mean of 2 seeds; labels use underscores, e.g.,\xspace  \texttt  {REV\_LEARN} is \textsc  {Rev-Learn}\xspace  ). {\em  (Left)}On general text, the rank of bytes-per-token matches the rank of BPB\xspace  exactly (Spearman $\rho =-1.0$, exact $p=0.003$). {\em  (Right)}On biomedical text the relation is nearly monotone ($\rho =-0.94$, $p=0.005$); \textsc  {Rand-Learn}\xspace  and \textsc  {Rand-Order}\xspace  swap places, and \textsc  {Domain}\xspace  overtakes \textsc  {Freq}\xspace  by compressing better.\relax }}{7}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:compression}{{2}{7}{Compression predicts language-modeling quality. Each point is one tokenizer (mean of 2 seeds; labels use underscores, \eg \texttt {REV\_LEARN} is \revlearn ). \figleft On general text, the rank of bytes-per-token matches the rank of \bpb exactly (Spearman $\rho =-1.0$, exact $p=0.003$). \figright On biomedical text the relation is nearly monotone ($\rho =-0.94$, $p=0.005$); \randlearn and \randorder swap places, and \domain overtakes \freq by compressing better.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Compression explains the language-modeling gap}{7}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:mechanism}{{4.3}{7}{Compression explains the language-modeling gap}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Merge order does not affect fine-tuned classification}{7}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:ft}{{4.4}{7}{Merge order does not affect fine-tuned classification}{subsection.4.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Fine-tuned accuracy (\%, mean $\pm $ sd over 4 runs) and relative change against \textsc  {Freq}\xspace  with 95\% paired-bootstrap CIs over test items. None of the 15 comparisons is significant (raw $p \ge 0.08$; Holm-adjusted $p = 1.0$). Best mean per task in \textbf  {bold}. Macro-F1 gives the same picture (table\nobreakspace  {}\ref  {tab:f1}).\relax }}{8}{table.caption.7}\protected@file@percent }
+\newlabel{tab:finetune}{{4}{8}{Fine-tuned accuracy (\%, mean $\pm $ sd over 4 runs) and relative change against \freq with 95\% paired-bootstrap CIs over test items. None of the 15 comparisons is significant (raw $p \ge 0.08$; Holm-adjusted $p = 1.0$). Best mean per task in \textbf {bold}. Macro-F1 gives the same picture (\tabref {tab:f1}).\relax }{table.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Relative change against \textsc  {Freq}\xspace  with 95\% paired-bootstrap CIs; positive means better, so BPB\xspace  changes are sign-flipped. The language-modeling gaps (left two groups) are large and have tight intervals. The fine-tuning differences (right three groups) are small, and every interval covers zero.\relax }}{8}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:relative}{{3}{8}{Relative change against \freq with 95\% paired-bootstrap CIs; positive means better, so \bpb changes are sign-flipped. The language-modeling gaps (left two groups) are large and have tight intervals. The fine-tuning differences (right three groups) are small, and every interval covers zero.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Robustness}{8}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:robustness}{{4.5}{8}{Robustness}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Hypothesis verdicts}{8}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:verdicts}{{4.6}{8}{Hypothesis verdicts}{subsection.4.6}{}}
+\citation{goldman2024unpacking}
+\citation{schmidt2024tokenization}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Robustness to the random draw. A second draw (\textsc  {-t1}) of each random tokenizer, trained with pre-training seed 0, gives effects of the same size as the first draw. $\Delta $ is relative to \textsc  {Freq}\xspace  seed 0. Accuracy (\%) is the mean of 2 fine-tuning seeds on the seed-0 model; differences between draws are within 0.7 points on every task.\relax }}{9}{table.caption.9}\protected@file@percent }
+\newlabel{tab:robustness}{{5}{9}{Robustness to the random draw. A second draw (\textsc {-t1}) of each random tokenizer, trained with pre-training seed 0, gives effects of the same size as the first draw. $\Delta $ is relative to \freq seed 0. Accuracy (\%) is the mean of 2 fine-tuning seeds on the seed-0 model; differences between draws are within 0.7 points on every task.\relax }{table.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces The four hypotheses we set out to test and their verdicts. The qualitative ordering largely holds for BPB\xspace  , but the hypothesized effect sizes are too large, and none of the effects reaches fine-tuned accuracy.\relax }}{9}{table.caption.10}\protected@file@percent }
+\newlabel{tab:hypotheses}{{6}{9}{The four hypotheses we set out to test and their verdicts. The qualitative ordering largely holds for \bpb , but the hypothesized effect sizes are too large, and none of the effects reaches fine-tuned accuracy.\relax }{table.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
+\newlabel{sec:discussion}{{5}{9}{Discussion}{section.5}{}}
+\bibdata{references}
+\bibcite{ali2024tokenizer}{{1}{2024}{{Ali et~al.}}{{Ali, Fromm, Thellmann, Rutmann, L{\"u}bbering, Leveling, Klug, Ebert, Doll, Buschhoff, et~al.}}}
+\bibcite{beltagy2019scibert}{{2}{2019}{{Beltagy et~al.}}{{Beltagy, Lo, and Cohan}}}
+\bibcite{bostrom2020byte}{{3}{2020}{{Bostrom and Durrett}}{{}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Limitations}{10}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:limitations}{{5.1}{10}{Limitations}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{10}{section.6}\protected@file@percent }
+\newlabel{sec:conclusion}{{6}{10}{Conclusion}{section.6}{}}
+\bibcite{dernoncourt2017pubmed}{{4}{2017}{{Dernoncourt and Lee}}{{}}}
+\bibcite{efron1994introduction}{{5}{1994}{{Efron and Tibshirani}}{{}}}
+\bibcite{gage1994new}{{6}{1994}{{Gage}}{{}}}
+\bibcite{galle2019investigating}{{7}{2019}{{Gall{\'e}}}{{}}}
+\bibcite{gao2020pile}{{8}{2020}{{Gao et~al.}}{{Gao, Biderman, Black, Golding, Hoppe, Foster, Phang, He, Thite, Nabeshima, Presser, and Leahy}}}
+\bibcite{goldman2024unpacking}{{9}{2024}{{Goldman et~al.}}{{Goldman, Caciularu, Eyal, Cao, Szpektor, and Tsarfaty}}}
+\bibcite{gu2021domain}{{10}{2021}{{Gu et~al.}}{{Gu, Tinn, Cheng, Lucas, Usuyama, Liu, Naumann, Gao, and Poon}}}
+\bibcite{gururangan2020don}{{11}{2020}{{Gururangan et~al.}}{{Gururangan, Marasovi{\'c}, Swayamdipta, Lo, Beltagy, Downey, and Smith}}}
+\bibcite{holm1979simple}{{12}{1979}{{Holm}}{{}}}
+\bibcite{kudo2018subword}{{13}{2018}{{Kudo}}{{}}}
+\bibcite{loshchilov2019decoupled}{{14}{2019}{{Loshchilov and Hutter}}{{}}}
+\bibcite{merity2017pointer}{{15}{2017}{{Merity et~al.}}{{Merity, Xiong, Bradbury, and Socher}}}
+\bibcite{provilkov2020bpe}{{16}{2020}{{Provilkov et~al.}}{{Provilkov, Emelianenko, and Voita}}}
+\bibcite{radford2019language}{{17}{2019}{{Radford et~al.}}{{Radford, Wu, Child, Luan, Amodei, and Sutskever}}}
+\bibcite{schmidt2024tokenization}{{18}{2024}{{Schmidt et~al.}}{{Schmidt, Reddy, Zhang, Alameddine, Uzan, Pinter, and Tanner}}}
+\bibcite{sennrich2016neural}{{19}{2016}{{Sennrich et~al.}}{{Sennrich, Haddow, and Birch}}}
+\bibcite{socher2013recursive}{{20}{2013}{{Socher et~al.}}{{Socher, Perelygin, Wu, Chuang, Manning, Ng, and Potts}}}
+\bibcite{xue2022byt5}{{21}{2022}{{Xue et~al.}}{{Xue, Barua, Constant, Al-Rfou, Narang, Kale, Roberts, and Raffel}}}
+\bibcite{zhang2015character}{{22}{2015}{{Zhang et~al.}}{{Zhang, Zhao, and LeCun}}}
+\bibcite{zouhar2023tokenization}{{23}{2023}{{Zouhar et~al.}}{{Zouhar, Meister, Gastaldi, Du, Sachan, and Cotterell}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Additional Results}{12}{appendix.A}\protected@file@percent }
+\newlabel{app:extra}{{A}{12}{Additional Results}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Approximate per-byte training loss (seed 0) against the fraction of the shared training text seen. The curves overlap for most of training; the gaps open late, as \textsc  {Freq}\xspace  and \textsc  {Domain}\xspace  keep improving. Labels use underscores (e.g.,\xspace  \texttt  {REV\_LEARN} is \textsc  {Rev-Learn}\xspace  ).\relax }}{12}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:train_curves}{{4}{12}{Approximate per-byte training loss (seed 0) against the fraction of the shared training text seen. The curves overlap for most of training; the gaps open late, as \freq and \domain keep improving. Labels use underscores (\eg \texttt {REV\_LEARN} is \revlearn ).\relax }{figure.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Pre-training compute for seed 0. Compute is relative to \textsc  {Freq}\xspace  (same model, so proportional to tokens). Poor compressors receive 1.7--3.8$\times $ more compute yet still reach worse BPB\xspace  .\relax }}{12}{table.caption.13}\protected@file@percent }
+\newlabel{tab:compute}{{7}{12}{Pre-training compute for seed 0. Compute is relative to \freq (same model, so proportional to tokens). Poor compressors receive 1.7--3.8$\times $ more compute yet still reach worse \bpb .\relax }{table.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Fine-tuned macro-F1 (\%, mean $\pm $ sd over 4 runs) and relative change against \textsc  {Freq}\xspace  . Best mean per task in \textbf  {bold}. Mean test length in tokens is shown in parentheses, which reflects compression.\relax }}{13}{table.caption.14}\protected@file@percent }
+\newlabel{tab:f1}{{8}{13}{Fine-tuned macro-F1 (\%, mean $\pm $ sd over 4 runs) and relative change against \freq . Best mean per task in \textbf {bold}. Mean test length in tokens is shown in parentheses, which reflects compression.\relax }{table.caption.14}{}}
+\gdef \@abspage@last{13}

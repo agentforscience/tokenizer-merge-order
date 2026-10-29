@@ -1,0 +1,13 @@
+{
+ "tokenizer": "RAND_LEARN",
+ "seed": 1,
+ "n_params": 23344640,
+ "steps": 3358,
+ "train_tokens": 110034944,
+ "train_sec": 2990.865308523178,
+ "final_train_loss": 1.6047939658164978,
+ "eval_general_bpb": 1.386693033073003,
+ "eval_general_nll_per_token": 1.7501212624249982,
+ "eval_domain_bpb": 1.2938043348198747,
+ "eval_domain_nll_per_token": 1.5975951249383151
+}

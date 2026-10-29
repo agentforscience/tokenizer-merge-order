@@ -1,0 +1,12 @@
+2.0 results/ft/FREQ_s0/done.json REQUIRES=results/lm/FREQ_s0/metrics.json .venv/bin/python -u src/eval_docs.py FREQ 0 && .venv/bin/python -u src/finetune.py FREQ 0
+2.0 results/ft/DOMAIN_s0/done.json REQUIRES=results/lm/DOMAIN_s0/metrics.json .venv/bin/python -u src/eval_docs.py DOMAIN 0 && .venv/bin/python -u src/finetune.py DOMAIN 0
+2.0 results/ft/RAND_ORDER_s0/done.json REQUIRES=results/lm/RAND_ORDER_s0/metrics.json .venv/bin/python -u src/eval_docs.py RAND_ORDER 0 && .venv/bin/python -u src/finetune.py RAND_ORDER 0
+2.0 results/ft/RAND_LEARN_s0/done.json REQUIRES=results/lm/RAND_LEARN_s0/metrics.json .venv/bin/python -u src/eval_docs.py RAND_LEARN 0 && .venv/bin/python -u src/finetune.py RAND_LEARN 0
+2.0 results/ft/REV_ORDER_s0/done.json REQUIRES=results/lm/REV_ORDER_s0/metrics.json .venv/bin/python -u src/eval_docs.py REV_ORDER 0 && .venv/bin/python -u src/finetune.py REV_ORDER 0
+2.0 results/ft/REV_LEARN_s0/done.json REQUIRES=results/lm/REV_LEARN_s0/metrics.json .venv/bin/python -u src/eval_docs.py REV_LEARN 0 && .venv/bin/python -u src/finetune.py REV_LEARN 0
+2.0 results/ft/FREQ_s1/done.json REQUIRES=results/lm/FREQ_s1/metrics.json .venv/bin/python -u src/eval_docs.py FREQ 1 && .venv/bin/python -u src/finetune.py FREQ 1
+2.0 results/ft/DOMAIN_s1/done.json REQUIRES=results/lm/DOMAIN_s1/metrics.json .venv/bin/python -u src/eval_docs.py DOMAIN 1 && .venv/bin/python -u src/finetune.py DOMAIN 1
+2.0 results/ft/RAND_ORDER_s1/done.json REQUIRES=results/lm/RAND_ORDER_s1/metrics.json .venv/bin/python -u src/eval_docs.py RAND_ORDER 1 && .venv/bin/python -u src/finetune.py RAND_ORDER 1
+2.0 results/ft/RAND_LEARN_s1/done.json REQUIRES=results/lm/RAND_LEARN_s1/metrics.json .venv/bin/python -u src/eval_docs.py RAND_LEARN 1 && .venv/bin/python -u src/finetune.py RAND_LEARN 1
+2.0 results/ft/REV_ORDER_s1/done.json REQUIRES=results/lm/REV_ORDER_s1/metrics.json .venv/bin/python -u src/eval_docs.py REV_ORDER 1 && .venv/bin/python -u src/finetune.py REV_ORDER 1
+2.0 results/ft/REV_LEARN_s1/done.json REQUIRES=results/lm/REV_LEARN_s1/metrics.json .venv/bin/python -u src/eval_docs.py REV_LEARN 1 && .venv/bin/python -u src/finetune.py REV_LEARN 1

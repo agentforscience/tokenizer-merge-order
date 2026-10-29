@@ -1,0 +1,8 @@
+RAND_LEARN 0 eval_general bpb 1.387837444828701
+RAND_LEARN 0 eval_domain bpb 1.3159517472996267
+RAND_LEARN 0 sst2 0 acc=0.7924 f1=0.7920 trunc=0.000 42s
+RAND_LEARN 0 sst2 1 acc=0.8005 f1=0.8002 trunc=0.000 41s
+RAND_LEARN 0 agnews 0 acc=0.8860 f1=0.8864 trunc=0.014 70s
+RAND_LEARN 0 agnews 1 acc=0.8840 f1=0.8847 trunc=0.014 70s
+RAND_LEARN 0 pubmed 0 acc=0.8120 f1=0.7426 trunc=0.007 65s
+RAND_LEARN 0 pubmed 1 acc=0.8153 f1=0.7524 trunc=0.007 65s

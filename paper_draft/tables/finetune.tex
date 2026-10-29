@@ -1,0 +1,22 @@
+\begin{table}[t]
+    \centering
+    \caption{Fine-tuned accuracy (\%, mean $\pm$ sd over 4 runs) and relative change against \freq with 95\% paired-bootstrap CIs over test items. None of the 15 comparisons is significant (raw $p \ge 0.08$; Holm-adjusted $p = 1.0$). Best mean per task in \textbf{bold}. Macro-F1 gives the same picture (\tabref{tab:f1}).}
+    \label{tab:finetune}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        & \multicolumn{2}{c}{\sst} & \multicolumn{2}{c}{\agnews} & \multicolumn{2}{c}{\pubmedrct (domain)} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+        \textbf{Tokenizer} & Acc. & $\Delta$ [95\% CI] & Acc. & $\Delta$ [95\% CI] & Acc. & $\Delta$ [95\% CI] \\
+        \midrule
+        \freq      & 80.2 {\scriptsize $\pm$ 0.4} & --- & \textbf{89.3} {\scriptsize $\pm$ 0.4} & --- & 81.7 {\scriptsize $\pm$ 0.4} & --- \\
+        \domain    & \textbf{81.5} {\scriptsize $\pm$ 0.4} & +1.57\% [$-$0.43, 3.66] & 88.9 {\scriptsize $\pm$ 0.4} & $-$0.48\% [$-$1.14, 0.20] & \textbf{81.8} {\scriptsize $\pm$ 0.3} & +0.07\% [$-$0.59, 0.75] \\
+        \midrule
+        \randlearn & 79.7 {\scriptsize $\pm$ 0.6} & $-$0.64\% [$-$3.34, 2.08] & 88.8 {\scriptsize $\pm$ 0.4} & $-$0.58\% [$-$1.41, 0.25] & 81.4 {\scriptsize $\pm$ 0.2} & $-$0.35\% [$-$1.24, 0.55] \\
+        \revlearn  & 80.8 {\scriptsize $\pm$ 0.7} & +0.72\% [$-$1.72, 3.18] & 88.7 {\scriptsize $\pm$ 0.4} & $-$0.71\% [$-$1.57, 0.14] & 81.1 {\scriptsize $\pm$ 0.3} & $-$0.75\% [$-$1.69, 0.20] \\
+        \midrule
+        \randorder & 79.8 {\scriptsize $\pm$ 0.7} & $-$0.54\% [$-$2.96, 1.93] & 88.8 {\scriptsize $\pm$ 0.2} & $-$0.50\% [$-$1.29, 0.28] & 81.1 {\scriptsize $\pm$ 0.5} & $-$0.75\% [$-$1.60, 0.09] \\
+        \revorder  & 80.0 {\scriptsize $\pm$ 0.9} & $-$0.21\% [$-$2.80, 2.53] & 88.9 {\scriptsize $\pm$ 0.4} & $-$0.46\% [$-$1.28, 0.37] & 81.1 {\scriptsize $\pm$ 0.2} & $-$0.81\% [$-$1.70, 0.07] \\
+        \bottomrule
+    \end{tabular}}
+\end{table}

@@ -1,0 +1,85 @@
+\section{Introduction}
+\label{sec:intro}
+
+A BPE tokenizer is a list of merges~\citep{gage1994new,sennrich2016neural}.
+Training adds merges to this list one at a time, each time choosing the most frequent adjacent pair.
+At encoding time, the list order becomes a priority: the tokenizer repeatedly applies the highest-priority merge that fits~\citep{radford2019language}.
+The tokenizer is then frozen into every model built on top of it.
+Because the frequency rule is so standard, merge order is almost never treated as a design choice.
+Our main question is simple: {\bf does the order of BPE merges change the quality of a model built on the tokenizer?}
+
+The question matters in practice.
+Practitioners change merge order whenever they re-weight a tokenizer corpus toward a domain, add domain-specific tokens, or merge vocabularies from different sources.
+If quality is sensitive to merge order, these changes need care.
+If models are robust to it, merge order can be changed freely, for example for domain adaptation.
+Prior work compares tokenizer \emph{algorithms}~\citep{bostrom2020byte,ali2024tokenizer}, vocabulary sizes and compression~\citep{galle2019investigating,goldman2024unpacking}, intrinsic efficiency measures~\citep{zouhar2023tokenization}, stochastic segmentation~\citep{provilkov2020bpe,kudo2018subword}, and domain vocabularies~\citep{beltagy2019scibert,gu2021domain}.
+However, these comparisons change many things at once.
+We are not aware of a controlled study that varies \emph{only} merge order while holding data, vocabulary size, model, and training text fixed.
+Prior work also does not separate \emph{which} merges are learned from the \emph{priority} with which they are applied.
+
+We address this gap with a controlled from-scratch study (\figref{fig:overview}).
+We train six byte-level BPE tokenizers with 8,192 vocabulary entries on the same corpus, and we vary merge order in two ways.
+Four tokenizers change the \emph{learning order}, and hence the vocabulary:
+standard frequency BPE (\freq), domain-weighted frequency (\domain), random choice among frequent pairs (\randlearn), and least-frequent-first (\revlearn).
+Two tokenizers change only the \emph{application order}: they keep \freq's exact merges and vocabulary, but apply them in a random (\randorder) or reversed (\revorder) priority.
+For each tokenizer, we pre-train identical 23M-parameter GPT-style models on the same 200\,MB of Wikipedia and PubMed text.
+We measure tokenizer-independent bits-per-byte (\bpb), and then fine-tune each model on \sst, \agnews, and \pubmedrct sentence classification.
+
+The results split cleanly by metric.
+For language modeling, merge order clearly matters.
+On general text, \freq beats every alternative.
+The four non-frequency orders raise \bpb by 1.8--5.8\% on general text and by 2.8--9.8\% on biomedical text, and all 10 \bpb comparisons against \freq are significant after Holm correction.
+The same-vocabulary controls are the most telling.
+\randorder and \revorder lose 1.8--5.7\% \bpb with \emph{exactly} the same merges as \freq, because short merges that fire early consume their inputs and block long, frequent tokens.
+For example, \revorder splits ``\,hypertension'' into eight pieces, while \freq keeps it as one token.
+Compression explains the whole ranking: bytes-per-token rank-predicts general-text \bpb perfectly (Spearman $\rho=-1.0$, $n=6$).
+For fine-tuned classification, in contrast, every tokenizer lands within $-0.8\%$ to $+1.6\%$ of \freq, and none of the 15 comparisons is significant.
+Even a nearly character-level tokenizer (\revlearn) is within 1\% of \freq on every task.
+Domain weighting buys a real but small domain gain: 0.8\% \bpb on PubMed, at a cost of 0.4\% on general text.
+
+\begin{figure}[t]
+    \centering
+    \resizebox{0.95\linewidth}{!}{%
+    \begin{tikzpicture}[
+        box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=0.9cm, inner sep=4pt},
+        tok/.style={box, fill=blue!6, text width=2.25cm},
+        fam/.style={box, fill=gray!12, font=\small\bfseries, text width=3.0cm},
+        outbox/.style={box, fill=green!8, text width=3.2cm},
+        arr/.style={-{Stealth[length=2mm]}, thick}
+    ]
+    \node[box, fill=yellow!15, text width=2.6cm] (corpus) at (0,0) {Tokenizer corpus\\{\footnotesize 50\,MB Wiki + PubMed}};
+    \node[fam] (learn) at (3.4,1.1) {Learning order\\{\footnotesize\normalfont which merges are learned}};
+    \node[fam] (apply) at (3.4,-1.1) {Application order\\{\footnotesize\normalfont same merges as \freq, new priority}};
+    \node[tok] (t1) at (6.6,1.65) {\freq, \domain};
+    \node[tok] (t2) at (6.6,0.55) {\randlearn, \revlearn};
+    \node[tok] (t3) at (6.6,-1.1) {\randorder, \revorder};
+    \node[box, fill=orange!10, text width=2.7cm] (lm) at (9.9,0) {Identical 23M LM\\{\footnotesize same 200\,MB text, 2 seeds}};
+    \node[outbox] (bpb) at (13.4,0.75) {Held-out bits-per-byte\\{\footnotesize general / biomedical}};
+    \node[outbox] (ft) at (13.4,-0.75) {Fine-tuned accuracy\\{\footnotesize \sst, \agnews, \pubmedrct}};
+    \draw[arr] (corpus.east) -- ++(0.2,0) |- (learn.west);
+    \draw[arr] (corpus.east) -- ++(0.2,0) |- (apply.west);
+    \draw[arr] (learn.east) -- (t1.west);
+    \draw[arr] (learn.east) -- (t2.west);
+    \draw[arr] (apply.east) -- (t3.west);
+    \draw[arr] (t1.east) -- (lm.west);
+    \draw[arr] (t2.east) -- (lm.west);
+    \draw[arr] (t3.east) -- (lm.west);
+    \draw[arr] (lm.east) -- (bpb.west);
+    \draw[arr] (lm.east) -- (ft.west);
+    \end{tikzpicture}}
+    \caption{Study design. We train six byte-level BPE tokenizers (8,192 entries each) that differ only in merge order. Four change the \emph{learning order}, which changes the vocabulary. Two keep \freq's exact merges and change only the \emph{application order}, \ie merge priority at encoding time. Every tokenizer is paired with an identical language model trained on the same text, and we evaluate it with tokenizer-independent bits-per-byte and with fine-tuned classification.}
+    \label{fig:overview}
+\end{figure}
+
+In summary, we make the following contributions:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We design a controlled study that isolates BPE merge order, and we separate learning order (which merges exist) from application order (which merges fire first) through same-vocabulary controls.
+    \item We show that merge order significantly affects language modeling (+1.8--9.8\% \bpb) and that pure reordering of an identical vocabulary costs up to 5.7\%, leaving 59--79\% of the vocabulary unused.
+    \item We identify compression as the mechanism: bytes-per-token rank-predicts \bpb perfectly on general text ($\rho=-1.0$) and strongly on biomedical text ($\rho=-0.94$), while R\'enyi efficiency does not.
+    \item We find that fine-tuned classification is robust to merge order: our confidence intervals rule out effects larger than about 1.7\% on \agnews and \pubmedrct, and about 3.5\% on \sst.
+\end{itemize}
+
+The rest of the paper is organized as follows.
+\Secref{sec:related} reviews related work.
+\Secref{sec:method} describes the tokenizers, models, and evaluation.
+\Secref{sec:results} presents our results, and \secref{sec:discussion} discusses their implications and limitations.

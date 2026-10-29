@@ -1,0 +1,27 @@
+RAND_ORDER_t1 0 eval_general bpb 1.381219422977934
+RAND_ORDER_t1 0 eval_domain bpb 1.3018211282731817
+RAND_ORDER_t1 0 sst2 0 acc=0.7947 f1=0.7941 trunc=0.000 159s
+RAND_ORDER_t1 0 sst2 1 acc=0.7959 f1=0.7952 trunc=0.000 158s
+[W1027 12:37:38.528351508 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 29360128 bytes (free: 26214400, total: 50899386368).
+[W1027 12:37:39.098522967 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 31457280 bytes (free: 32505856, total: 50899386368).
+[W1027 12:37:39.145289972 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 16777216 bytes (free: 11534336, total: 50899386368).
+[W1027 12:37:39.145461418 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 16777216 bytes (free: 11534336, total: 50899386368).
+Traceback (most recent call last):
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/finetune.py", line 131, in <module>
+    main(sys.argv[1], int(sys.argv[2]))
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/finetune.py", line 123, in main
+    r = run(name, pseed, task, fs, tok, ckpt, dev)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/finetune.py", line 93, in run
+    logits = model(x.to(dev), m.to(dev))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/finetune.py", line 61, in forward
+    h = (h * m.unsqueeze(-1)).sum(1) / m.sum(1, keepdim=True)
+         ~~^~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 11.00 MiB is free. Process 1442346 has 11.32 GiB memory in use. Process 1581788 has 1.76 GiB memory in use. Process 1610251 has 24.54 GiB memory in use. Process 1649180 has 1.76 GiB memory in use. Process 1651312 has 1.76 GiB memory in use. Process 1698195 has 2.80 GiB memory in use. Process 1722124 has 1.76 GiB memory in use. Including non-PyTorch memory, this process has 1.64 GiB memory in use. Of the allocated memory 1.14 GiB is allocated by PyTorch, and 179.50 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

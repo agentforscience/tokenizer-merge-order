@@ -1,0 +1,25 @@
+11:58:17 launched on GPU2 (3.1 GB free): .venv/bin/python -u src/eval_docs.py RAND_LEARN 0 && .venv/bin/python -u src/finetune.py RAND_LEARN 0
+12:04:32 finished .venv/bin/python -u src/eval_docs.py RAND_LEARN 0 && .venv/bin/python -u src/finetune.py RAND_LEARN 0
+12:05:22 launched on GPU3 (3.2 GB free): .venv/bin/python -u src/eval_docs.py REV_ORDER 0 && .venv/bin/python -u src/finetune.py REV_ORDER 0
+12:12:33 launched on GPU1 (3.6 GB free): .venv/bin/python -u src/eval_docs.py FREQ 0 && .venv/bin/python -u src/finetune.py FREQ 0
+12:14:45 finished .venv/bin/python -u src/eval_docs.py REV_ORDER 0 && .venv/bin/python -u src/finetune.py REV_ORDER 0
+12:14:45 launched on GPU3 (3.2 GB free): .venv/bin/python -u src/eval_docs.py DOMAIN 0 && .venv/bin/python -u src/finetune.py DOMAIN 0
+12:15:50 launched on GPU3 (4.4 GB free): .venv/bin/python -u src/eval_docs.py REV_LEARN 0 && .venv/bin/python -u src/finetune.py REV_LEARN 0
+12:22:52 finished .venv/bin/python -u src/eval_docs.py DOMAIN 0 && .venv/bin/python -u src/finetune.py DOMAIN 0
+12:24:19 launched on GPU1 (3.3 GB free): .venv/bin/python -u src/eval_docs.py RAND_ORDER 0 && .venv/bin/python -u src/finetune.py RAND_ORDER 0
+12:28:09 finished .venv/bin/python -u src/eval_docs.py REV_LEARN 0 && .venv/bin/python -u src/finetune.py REV_LEARN 0
+12:29:24 finished .venv/bin/python -u src/eval_docs.py FREQ 0 && .venv/bin/python -u src/finetune.py FREQ 0
+12:34:04 launched on GPU2 (3.1 GB free): .venv/bin/python -u src/eval_docs.py REV_LEARN 1 && .venv/bin/python -u src/finetune.py REV_LEARN 1
+12:35:35 launched on GPU3 (4.2 GB free): .venv/bin/python -u src/eval_docs.py RAND_ORDER 1 && .venv/bin/python -u src/finetune.py RAND_ORDER 1
+12:41:27 finished .venv/bin/python -u src/eval_docs.py REV_LEARN 1 && .venv/bin/python -u src/finetune.py REV_LEARN 1
+12:41:27 launched on GPU2 (3.1 GB free): .venv/bin/python -u src/eval_docs.py DOMAIN 1 && .venv/bin/python -u src/finetune.py DOMAIN 1
+12:43:32 finished .venv/bin/python -u src/eval_docs.py RAND_ORDER 1 && .venv/bin/python -u src/finetune.py RAND_ORDER 1
+12:44:37 finished .venv/bin/python -u src/eval_docs.py RAND_ORDER 0 && .venv/bin/python -u src/finetune.py RAND_ORDER 0
+12:45:57 finished .venv/bin/python -u src/eval_docs.py DOMAIN 1 && .venv/bin/python -u src/finetune.py DOMAIN 1
+12:55:37 launched on GPU3 (6.0 GB free): .venv/bin/python -u src/eval_docs.py FREQ 1 && .venv/bin/python -u src/finetune.py FREQ 1
+12:58:02 finished .venv/bin/python -u src/eval_docs.py FREQ 1 && .venv/bin/python -u src/finetune.py FREQ 1
+13:02:57 launched on GPU1 (6.0 GB free): .venv/bin/python -u src/eval_docs.py RAND_LEARN 1 && .venv/bin/python -u src/finetune.py RAND_LEARN 1
+13:04:17 launched on GPU1 (6.5 GB free): .venv/bin/python -u src/eval_docs.py REV_ORDER 1 && .venv/bin/python -u src/finetune.py REV_ORDER 1
+13:14:47 finished .venv/bin/python -u src/eval_docs.py RAND_LEARN 1 && .venv/bin/python -u src/finetune.py RAND_LEARN 1
+13:15:57 finished .venv/bin/python -u src/eval_docs.py REV_ORDER 1 && .venv/bin/python -u src/finetune.py REV_ORDER 1
+all done

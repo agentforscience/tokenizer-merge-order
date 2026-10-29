@@ -1,0 +1,16 @@
+DOMAIN s1: 52.5M tokens, 102461 seqs, 1600 steps, 23.3M params
+[W1027 12:24:24.921121839 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 136314880 bytes (free: 85655552, total: 50899386368).
+[W1027 12:24:24.921346887 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 136314880 bytes (free: 85655552, total: 50899386368).
+Traceback (most recent call last):
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/train_lm.py", line 131, in <module>
+    main(sys.argv[1], int(sys.argv[2]))
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/train_lm.py", line 107, in main
+    loss.backward()
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 130.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 81.69 MiB is free. Process 1442346 has 11.32 GiB memory in use. Process 1580247 has 1.76 GiB memory in use. Process 1581788 has 1.76 GiB memory in use. Process 1610251 has 23.99 GiB memory in use. Process 1649180 has 1.76 GiB memory in use. Process 1651287 has 2.20 GiB memory in use. Process 1651312 has 1.76 GiB memory in use. Process 1697364 has 1.49 GiB memory in use. Including non-PyTorch memory, this process has 1.22 GiB memory in use. Of the allocated memory 911.29 MiB is allocated by PyTorch, and 20.71 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

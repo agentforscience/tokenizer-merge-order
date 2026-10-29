@@ -1,0 +1,8 @@
+RAND_ORDER 0 eval_general bpb 1.3711035172657808
+RAND_ORDER 0 eval_domain bpb 1.319502352480881
+RAND_ORDER 0 sst2 0 acc=0.7993 f1=0.7991 trunc=0.000 153s
+RAND_ORDER 0 sst2 1 acc=0.8028 f1=0.8027 trunc=0.000 150s
+RAND_ORDER 0 agnews 0 acc=0.8873 f1=0.8878 trunc=0.006 233s
+RAND_ORDER 0 agnews 1 acc=0.8887 f1=0.8890 trunc=0.006 247s
+RAND_ORDER 0 pubmed 0 acc=0.8103 f1=0.7485 trunc=0.001 199s
+RAND_ORDER 0 pubmed 1 acc=0.8120 f1=0.7524 trunc=0.001 196s

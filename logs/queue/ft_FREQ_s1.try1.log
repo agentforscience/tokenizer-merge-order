@@ -1,0 +1,8 @@
+FREQ 1 eval_general bpb 1.350403975331414
+FREQ 1 eval_domain bpb 1.2648695467561972
+FREQ 1 sst2 0 acc=0.8050 f1=0.8050 trunc=0.000 18s
+FREQ 1 sst2 1 acc=0.8039 f1=0.8036 trunc=0.000 18s
+FREQ 1 agnews 0 acc=0.8900 f1=0.8906 trunc=0.001 26s
+FREQ 1 agnews 1 acc=0.8887 f1=0.8894 trunc=0.001 24s
+FREQ 1 pubmed 0 acc=0.8163 f1=0.7521 trunc=0.001 24s
+FREQ 1 pubmed 1 acc=0.8167 f1=0.7536 trunc=0.001 22s

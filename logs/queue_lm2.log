@@ -1,0 +1,35 @@
+11:40:54 launched on GPU3 (3.2 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 0
+11:41:19 launched on GPU2 (3.1 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_LEARN 0
+11:42:30 launched on GPU1 (9.7 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 0
+11:45:59 launched on GPU1 (13.5 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 0
+11:46:04 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 0
+11:46:29 launched on GPU1 (18.1 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 0
+11:46:54 launched on GPU1 (4.0 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py FREQ 0
+11:58:15 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_LEARN 0
+11:58:16 launched on GPU2 (3.1 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+11:58:26 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+12:03:15 launched on GPU1 (4.3 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+12:03:25 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+12:04:31 launched on GPU2 (3.1 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+12:05:22 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 0
+12:05:22 launched on GPU3 (3.2 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 1
+12:05:32 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 1
+12:12:18 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py FREQ 0
+12:12:18 launched on GPU1 (3.6 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 1
+12:12:33 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 0
+12:12:49 launched on GPU1 (3.6 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_LEARN 1
+12:14:45 launched on GPU3 (3.2 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 1
+12:14:55 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 1
+12:15:46 launched on GPU3 (4.9 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 1
+12:20:36 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 0
+12:24:19 launched on GPU1 (3.3 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 1
+12:24:29 FAILED rc=1 MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 1
+12:28:13 launched on GPU3 (4.2 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 1
+12:31:52 launched on GPU1 (4.0 GB free): MICRO_BS=8 .venv/bin/python -u src/train_lm.py FREQ 1
+12:34:02 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+12:35:32 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER 1
+12:39:17 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py DOMAIN 1
+12:55:37 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py FREQ 1
+13:02:57 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_LEARN 1
+13:04:17 finished MICRO_BS=8 .venv/bin/python -u src/train_lm.py REV_ORDER 1
+all done

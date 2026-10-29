@@ -1,0 +1,9 @@
+DOMAIN 0 eval_general bpb 1.355124823858375
+DOMAIN 0 eval_domain bpb 1.2599182734252234
+DOMAIN 0 sst2 0 acc=0.8188 f1=0.8186 trunc=0.000 46s
+DOMAIN 0 sst2 1 acc=0.8177 f1=0.8175 trunc=0.000 50s
+[W1027 12:16:39.321165651 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 33554432 bytes (free: 29687808, total: 50899386368).
+DOMAIN 0 agnews 0 acc=0.8867 f1=0.8873 trunc=0.002 102s
+DOMAIN 0 agnews 1 acc=0.8927 f1=0.8932 trunc=0.002 103s
+DOMAIN 0 pubmed 0 acc=0.8207 f1=0.7536 trunc=0.000 83s
+DOMAIN 0 pubmed 1 acc=0.8143 f1=0.7535 trunc=0.000 83s

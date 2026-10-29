@@ -1,0 +1,10 @@
+general: 8049 articles, 150.0 MB
+pubmed200k: removed 36101 sentences overlapping PubMed-20k val/test
+domain: 13593 abstracts, 50.0 MB
+eval general MB 1.28453 eval domain MB 1.799206
+sst2 train 20000 {1: 11152, 0: 8848}
+sst2 test 872 {1: 444, 0: 428}
+agnews train 20000 {1: 5082, 0: 5021, 3: 4951, 2: 4946}
+agnews test 3000 {2: 770, 3: 765, 1: 733, 0: 732}
+pubmed train 20000 {2: 6792, 3: 6449, 4: 3130, 0: 2049, 1: 1580}
+pubmed test 3000 {2: 989, 3: 955, 4: 487, 0: 343, 1: 226}

@@ -1,0 +1,17 @@
+\begin{table}[t]
+    \centering
+    \caption{Robustness to the random draw. A second draw (\textsc{-t1}) of each random tokenizer, trained with pre-training seed 0, gives effects of the same size as the first draw. $\Delta$ is relative to \freq seed 0. Accuracy (\%) is the mean of 2 fine-tuning seeds on the seed-0 model; differences between draws are within 0.7 points on every task.}
+    \label{tab:robustness}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Tokenizer} & \textbf{Bytes/token} & \textbf{General $\Delta$\bpb} & \textbf{Domain $\Delta$\bpb} & \textbf{\sst} & \textbf{\agnews} & \textbf{\pubmedrct} \\
+        \midrule
+        \randorder          & 2.34 & +1.7\% & +3.7\% & 80.1 & 88.8 & 81.1 \\
+        \randorder\textsc{-t1} & 2.19 & +2.5\% & +2.3\% & 79.5 & 88.6 & 81.1 \\
+        \midrule
+        \randlearn          & 1.82 & +3.0\% & +3.4\% & 79.6 & 88.5 & 81.4 \\
+        \randlearn\textsc{-t1} & 1.76 & +2.7\% & +5.3\% & 79.0 & 89.0 & 81.5 \\
+        \bottomrule
+    \end{tabular}}
+\end{table}

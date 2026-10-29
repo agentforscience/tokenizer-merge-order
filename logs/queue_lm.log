@@ -1,0 +1,1 @@
+11:39:57 launched on GPU3 (6.0 GB free): MICRO_BS=16 .venv/bin/python -u src/train_lm.py REV_LEARN 0

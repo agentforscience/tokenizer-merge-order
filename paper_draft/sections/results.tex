@@ -1,0 +1,149 @@
+\section{Results}
+\label{sec:results}
+
+We first show how merge order changes segmentation (\secref{sec:intrinsics}).
+We then show its effect on language modeling (\secref{sec:lm}) and the compression mechanism behind it (\secref{sec:mechanism}).
+Next we show that the effect does not reach fine-tuned classification (\secref{sec:ft}).
+We close with robustness checks (\secref{sec:robustness}) and hypothesis verdicts (\secref{sec:verdicts}).
+
+\subsection{Merge order changes segmentation drastically}
+\label{sec:intrinsics}
+
+\input{tables/intrinsics}
+
+\para{Reordering the same merges breaks long tokens.}
+\Tabref{tab:intrinsics} shows that \randorder and \revorder, which have \freq's exact vocabulary, pack 40--55\% fewer bytes into each token than \freq on general text (2.34 and 1.73 \versus 3.87 bytes per token).
+They also keep only 28\% and 10\% of the top-1k words whole, compared with 89\% for \freq.
+The reason is that merges compete for the same bytes.
+When a short merge is applied first, it consumes bytes that a longer, frequent merge needed, and the long merge can no longer fire.
+The word ``\,hypertension'' illustrates this:
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Tokenizer} & \textbf{Segmentation of ``\,hypertension''} \\
+    \midrule
+    \freq      & \texttt{\textvisiblespace hypertension} \\
+    \randorder & \texttt{\textvisiblespace hy\,$\cdot$\,pe\,$\cdot$\,r\,$\cdot$\,te\,$\cdot$\,ns\,$\cdot$\,io\,$\cdot$\,n} \\
+    \revorder  & \texttt{\textvisiblespace\,$\cdot$\,hy\,$\cdot$\,pe\,$\cdot$\,r\,$\cdot$\,te\,$\cdot$\,ns\,$\cdot$\,io\,$\cdot$\,n} \\
+    \revlearn  & single characters \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+As a result, 59\% (\randorder) and 79\% (\revorder) of the vocabulary never appear in 5M tokens of encoded text.
+The merges exist, but they are dead weight.
+
+\para{Changing what is learned matters even more.}
+\revlearn learns only rare word fragments.
+It compresses to 1.03 bytes per token, so it is effectively a character-level tokenizer.
+\randlearn sits in between, at 1.82 bytes per token.
+\domain behaves as intended: it keeps 99\% of the top-1k biomedical words whole (\versus 92\% for \freq) and improves biomedical compression by 7\%, at a 6\% loss on general text.
+
+\subsection{Merge order matters for language modeling}
+\label{sec:lm}
+
+\input{tables/bpb}
+
+\para{Every non-frequency order is significantly worse.}
+\Tabref{tab:bpb} shows that, on general text, every alternative is worse than \freq.
+The four non-frequency orders raise \bpb by 1.8--5.8\% on general text and by 2.8--9.8\% on biomedical text.
+These gaps are large compared with run-to-run noise: the pre-training seed standard deviation is at most 0.002 \bpb on general text, while the smallest non-frequency gap is 0.024.
+All 10 comparisons survive Holm correction.
+
+\para{Pure reordering costs almost as much as a random vocabulary.}
+The application-order tokenizers isolate merge priority.
+\randorder loses 1.8\% (general) and 3.6\% (biomedical), and \revorder loses 3.4\% and 5.7\%.
+\revorder is \emph{worse} than \randlearn, which learns an entirely different, randomly chosen vocabulary.
+So merge priority is not a cosmetic detail of a merge list: in its pure form, merge order matters.
+
+\para{Reverse frequency is worst; domain weighting helps slightly.}
+\revlearn is the worst tokenizer on both test sets (+5.8\% and +9.8\%).
+\domain is the only tokenizer that beats \freq anywhere.
+It improves biomedical \bpb by 0.83\% (95\% CI [0.60, 1.04]) and costs 0.41\% on general text.
+
+\subsection{Compression explains the language-modeling gap}
+\label{sec:mechanism}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/compression_vs_bpb.png}
+    \caption{Compression predicts language-modeling quality. Each point is one tokenizer (mean of 2 seeds; labels use underscores, \eg \texttt{REV\_LEARN} is \revlearn). \figleft On general text, the rank of bytes-per-token matches the rank of \bpb exactly (Spearman $\rho=-1.0$, exact $p=0.003$). \figright On biomedical text the relation is nearly monotone ($\rho=-0.94$, $p=0.005$); \randlearn and \randorder swap places, and \domain overtakes \freq by compressing better.}
+    \label{fig:compression}
+\end{figure}
+
+\para{Bytes per token rank-predicts \bpb.}
+\Figref{fig:compression} plots \bpb against compression.
+On general text, the ranks match exactly ($\rho=-1.0$, $n=6$).
+On biomedical text, the relation is nearly perfect ($\rho=-0.94$).
+The only swap is between \randlearn and \randorder, whose biomedical compression differs by 0.46 bytes per token while their \bpb differs by only 0.009.
+Compression also explains \domain: it is the best compressor of biomedical text and the best biomedical model.
+
+\para{R\'enyi efficiency does not.}
+R\'enyi efficiency~\citep{zouhar2023tokenization} ranks the tokenizers differently.
+\randorder has the \emph{highest} general R\'enyi efficiency (0.55, \tabref{tab:intrinsics}) but only the third-best \bpb.
+Across the six tokenizers, R\'enyi efficiency correlates only weakly with \bpb ($\rho=-0.71$, $p=0.11$ on general text; $\rho=-0.49$, $p=0.33$ on biomedical text).
+In our setting, plain compression is the better predictor.
+
+\para{Why compression matters here.}
+With a fixed 512-token window, a poor compressor sees much less text: about 530 bytes per window for \revlearn \versus about 2,000 bytes for \freq.
+It also spends capacity on predicting pieces inside words.
+The training curves in \figref{fig:train_curves} (\appref{app:extra}) are consistent with this.
+The per-byte training loss of all tokenizers overlaps for most of training, and the gaps open late, as \freq and \domain keep improving.
+
+\subsection{Merge order does not affect fine-tuned classification}
+\label{sec:ft}
+
+\input{tables/finetune}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/relative_vs_freq.png}
+    \caption{Relative change against \freq with 95\% paired-bootstrap CIs; positive means better, so \bpb changes are sign-flipped. The language-modeling gaps (left two groups) are large and have tight intervals. The fine-tuning differences (right three groups) are small, and every interval covers zero.}
+    \label{fig:relative}
+\end{figure}
+
+\para{All tokenizers reach the same accuracy.}
+\Tabref{tab:finetune} and \figref{fig:relative} show that every tokenizer lands within $-0.8\%$ to $+1.6\%$ of \freq's accuracy.
+None of the 15 comparisons is significant (raw $p \ge 0.08$, Holm-adjusted $p = 1.0$).
+The confidence intervals are tight enough to be informative: they rule out effects larger than about 1.7\% on \agnews and \pubmedrct, and about 3.5\% on \sst.
+On \pubmedrct, the four non-frequency tokenizers are all slightly below \freq ($-0.35\%$ to $-0.81\%$), but every interval includes zero.
+
+\para{Even a near-character tokenizer is competitive.}
+\revlearn, which needs 5.0 tokens per word, is within 1\% of \freq on every task.
+This holds even on \agnews, where 23\% of \revlearn's test inputs are truncated at 256 tokens (\versus 0.1\% for \freq).
+Its 5.8--9.8\% \bpb gap from pre-training simply does not carry over to these tasks.
+
+\para{Domain weighting does not help the domain task.}
+\domain improves \pubmedrct accuracy by only 0.07\%.
+Its +1.6\% on \sst is the largest point gain in the table, but it is not significant ($p=0.13$, CI $[-0.43, 3.66]$).
+
+\subsection{Robustness}
+\label{sec:robustness}
+
+\input{tables/robustness}
+
+\para{Random draw.}
+\Tabref{tab:robustness} shows that a second random draw of each random tokenizer gives effects of the same size: +1.7--3.0\% general \bpb across all four random tokenizers, and accuracy within 0.7 points of the first draw.
+Our conclusions do not depend on the particular permutation.
+
+\para{Seeds.}
+The pre-training seed standard deviation of \bpb ($\le 0.016$) is much smaller than the gaps between \freq and the four non-frequency orders ($\ge 0.024$), and the fine-tuning standard deviation ($\le 0.9$ points) is similar to the between-tokenizer differences.
+
+\para{Compute does not compensate.}
+Because we hold text fixed, poor compressors get more tokens and more gradient steps: 1.7--3.8$\times$ the compute of \freq (\tabref{tab:compute}, \appref{app:extra}).
+\revlearn takes 5,939 steps, while \freq takes 1,555.
+\freq is still best on general text.
+An equal-compute comparison would therefore favor \freq even more.
+
+\subsection{Hypothesis verdicts}
+\label{sec:verdicts}
+
+\input{tables/hypotheses}
+
+\Tabref{tab:hypotheses} summarizes our initial hypotheses.
+The qualitative picture largely holds for \bpb: \freq wins on general text, random orders lose a few percent, and reverse-frequency is worst.
+However, the hypothesized effect sizes are too large.
+Reverse frequency loses 5.8--9.8\% rather than 10--20\%, and domain weighting gains 0.8\% rather than 5--12\%.
+None of the effects reaches fine-tuned accuracy.

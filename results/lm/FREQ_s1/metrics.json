@@ -1,0 +1,13 @@
+{
+ "tokenizer": "FREQ",
+ "seed": 1,
+ "n_params": 23344640,
+ "steps": 1555,
+ "train_tokens": 50954240,
+ "train_sec": 1411.3253931999207,
+ "final_train_loss": 3.5361768305301666,
+ "eval_general_bpb": 1.35040397976632,
+ "eval_general_nll_per_token": 3.6263652901745287,
+ "eval_domain_bpb": 1.26486955042085,
+ "eval_domain_nll_per_token": 3.6030828866345144
+}

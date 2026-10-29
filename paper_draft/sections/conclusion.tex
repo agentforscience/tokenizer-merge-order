@@ -1,0 +1,17 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We ask whether the order of BPE merges, both learned and applied, affects the models built on a tokenizer.
+In a controlled study with six tokenizers, 14 language models, and 84 fine-tuning runs, the answer depends on the metric.
+For language modeling, merge order matters: the four non-frequency orders raise bits-per-byte by 1.8--9.8\%, all significantly, and even a pure reordering of an identical vocabulary costs up to 5.7\%.
+Compression fully explains this: the order that keeps common words whole wins.
+For fine-tuned classification at our scale, merge order does not measurably matter (at most 1.6\%, not significant).
+Domain-weighted merge order gives a real but small 0.8\% domain gain.
+
+The key takeaway is that a merge list is an ordered object: its order decides which tokens are actually used, and so how well a language model can compress text.
+
+Several follow-ups would test how far these findings extend:
+equal-compute and equal-byte-context controls;
+models with more than 100M parameters and 32k vocabularies;
+generation, few-shot, and low-data (100--1,000 example) evaluations;
+and a rarer target domain, such as chemistry or code, where domain-biased merges may help more.

@@ -1,0 +1,9 @@
+REV_LEARN 1 eval_general bpb 1.4266932996358404
+REV_LEARN 1 eval_domain bpb 1.4051187814151667
+REV_LEARN 1 sst2 0 acc=0.8142 f1=0.8138 trunc=0.000 58s
+REV_LEARN 1 sst2 1 acc=0.8073 f1=0.8068 trunc=0.000 57s
+[W1027 12:37:34.442393814 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 134217728 bytes (free: 78577664, total: 50899386368).
+REV_LEARN 1 agnews 0 acc=0.8867 f1=0.8872 trunc=0.230 76s
+REV_LEARN 1 agnews 1 acc=0.8913 f1=0.8920 trunc=0.230 75s
+REV_LEARN 1 pubmed 0 acc=0.8100 f1=0.7469 trunc=0.072 75s
+REV_LEARN 1 pubmed 1 acc=0.8133 f1=0.7505 trunc=0.072 75s

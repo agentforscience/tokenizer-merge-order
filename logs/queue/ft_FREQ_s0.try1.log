@@ -1,0 +1,9 @@
+FREQ 0 eval_general bpb 1.3476697784643659
+FREQ 0 eval_domain bpb 1.27256186471995
+FREQ 0 sst2 0 acc=0.7959 f1=0.7958 trunc=0.000 127s
+FREQ 0 sst2 1 acc=0.8028 f1=0.8027 trunc=0.000 126s
+[W1027 12:17:15.656038495 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 33554432 bytes (free: 5242880, total: 50899386368).
+FREQ 0 agnews 0 acc=0.8980 f1=0.8985 trunc=0.001 214s
+FREQ 0 agnews 1 acc=0.8947 f1=0.8952 trunc=0.001 184s
+FREQ 0 pubmed 0 acc=0.8137 f1=0.7503 trunc=0.001 162s
+FREQ 0 pubmed 1 acc=0.8223 f1=0.7620 trunc=0.001 173s

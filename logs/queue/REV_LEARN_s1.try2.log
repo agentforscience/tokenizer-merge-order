@@ -1,0 +1,40 @@
+REV_LEARN s1: 194.6M tokens, 380107 seqs, 5939 steps, 23.3M params
+[W1027 12:03:21.182445593 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 16777216 bytes (free: 10158080, total: 50899386368).
+[W1027 12:03:21.182641545 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 16777216 bytes (free: 10158080, total: 50899386368).
+Traceback (most recent call last):
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/train_lm.py", line 131, in <module>
+    main(sys.argv[1], int(sys.argv[2]))
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/train_lm.py", line 105, in main
+    logits = model(b[:, :-1])
+             ^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/model.py", line 54, in forward
+    return self.hidden(idx) @ self.wte.weight.T  # tied output embedding
+           ^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/model.py", line 50, in hidden
+    x = b(x, attn_mask=attn_mask)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/src/model.py", line 25, in forward
+    return x + self.fc2(F.gelu(self.fc(self.ln2(x))))
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/summereunann/neurico-workspaces/tokenizer_merge_order_20261027_120001_ef56gh78/.venv/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 47.40 GiB of which 9.69 MiB is free. Process 1442346 has 11.32 GiB memory in use. Process 1509049 has 26.36 GiB memory in use. Process 1566435 has 1.76 GiB memory in use. Process 1580247 has 1.76 GiB memory in use. Process 1581505 has 1.76 GiB memory in use. Process 1581788 has 1.76 GiB memory in use. Process 1582787 has 1.76 GiB memory in use. Process 1610251 has 308.00 MiB memory in use. Including non-PyTorch memory, this process has 566.00 MiB memory in use. Of the allocated memory 230.46 MiB is allocated by PyTorch, and 13.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

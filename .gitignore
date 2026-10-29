@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+datasets/items/
+datasets/longbench/
+datasets/processed/lm_train.txt
+datasets/raw/pubmed200k/
+results/encoded/*.npy
+results/encoded/.*
+logs/execution_claude_transcript.jsonl
+node_modules/
+*.egg-info/

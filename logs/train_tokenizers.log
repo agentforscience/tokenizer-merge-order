@@ -1,0 +1,34 @@
+pre-tokens: 178662 unique, 107403 with count>=2
+  [revfreq] 1000 merges, vocab 1256, last='UR' count=97
+  [revfreq] 2000 merges, vocab 2256, last='ĠUTC' count=215
+  [revfreq] 3000 merges, vocab 3256, last='CPR' count=134
+  [revfreq] 4000 merges, vocab 4256, last='kwe' count=95
+  [revfreq] 5000 merges, vocab 5256, last='auxi' count=60
+  [revfreq] 6000 merges, vocab 6256, last='witzerl' count=204
+  [revfreq] 7000 merges, vocab 7256, last='187' count=50
+REV_LEARN done 1.1387784481048584
+  [randpair] 1000 merges, vocab 1256, last='pavi' count=108
+  [randpair] 2000 merges, vocab 2256, last='ois' count=1361
+  [randpair] 3000 merges, vocab 3256, last='lusiv' count=200
+  [randpair] 4000 merges, vocab 4256, last='tew' count=324
+  [randpair] 5000 merges, vocab 5256, last='believin' count=148
+  [randpair] 6000 merges, vocab 6256, last='Ġbud' count=433
+  [randpair] 7000 merges, vocab 7256, last='diverge' count=68
+RAND_LEARN done 4.559694051742554
+  [freq] 1000 merges, vocab 1256, last='Ġmus' count=10542
+  [freq] 1000 merges, vocab 1256, last='Ġscore' count=3664
+  [freq] 2000 merges, vocab 2256, last='ĠOf' count=4145
+  [freq] 2000 merges, vocab 2256, last='Ġfather' count=1569
+  [freq] 3000 merges, vocab 3256, last='Ġvascular' count=2488
+  [freq] 3000 merges, vocab 3256, last='ĠCong' count=927
+  [freq] 4000 merges, vocab 4256, last='Ġimaging' count=1665
+  [freq] 4000 merges, vocab 4256, last='ĠZealand' count=641
+  [freq] 5000 merges, vocab 5256, last='onia' count=1225
+  [freq] 5000 merges, vocab 5256, last='arden' count=481
+  [freq] 6000 merges, vocab 6256, last='Ġbridge' count=934
+  [freq] 6000 merges, vocab 6256, last='ocaine' count=375
+  [freq] 7000 merges, vocab 7256, last='odilator' count=736
+  [freq] 7000 merges, vocab 7256, last='Ġcandidate' count=306
+DOMAIN done 7.358536958694458
+FREQ done 7.449722528457642
+FREQ vs HF BpeTrainer merge-set overlap: {'overlap_first_500': 1.0, 'overlap_first_1000': 1.0, 'overlap_first_4000': 1.0, 'overlap_first_7936': 1.0}

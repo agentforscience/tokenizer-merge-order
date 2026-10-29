@@ -1,0 +1,584 @@
+{
+ "FREQ": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 50986636,
+  "lm_train_bytes_per_token": 3.9233261437369586,
+  "eval_general_tokens": 331560,
+  "eval_general_bytes_per_token": 3.8743847267462903,
+  "eval_domain_tokens": 438036,
+  "eval_domain_bytes_per_token": 4.109721575395629,
+  "vocab_used_frac_5Mtok": 0.9886474609375,
+  "general_tokens_per_word": 1.3260039425964356,
+  "general_top1k_single_frac": 0.888,
+  "general_top1k_tokens_per_word": 1.187,
+  "general_seg_agree_freq": 1.0,
+  "general_renyi_eff_2.5": 0.5224475004222119,
+  "examples": {
+   "\u0120the": [
+    "\u0120the"
+   ],
+   "\u0120because": [
+    "\u0120because"
+   ],
+   "\u0120football": [
+    "\u0120football"
+   ],
+   "\u0120randomized": [
+    "\u0120randomized"
+   ],
+   "\u0120patients": [
+    "\u0120patients"
+   ],
+   "\u0120hypertension": [
+    "\u0120hypertension"
+   ],
+   "\u0120international": [
+    "\u0120international"
+   ],
+   "\u0120placebo": [
+    "\u0120placebo"
+   ]
+  },
+  "domain_tokens_per_word": 1.2929458919016024,
+  "domain_top1k_single_frac": 0.922,
+  "domain_top1k_tokens_per_word": 1.104,
+  "domain_seg_agree_freq": 1.0,
+  "domain_renyi_eff_2.5": 0.5251843614463927
+ },
+ "DOMAIN": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 52460293,
+  "lm_train_bytes_per_token": 3.8131163697465436,
+  "eval_general_tokens": 352331,
+  "eval_general_bytes_per_token": 3.6459777879323703,
+  "eval_domain_tokens": 408554,
+  "eval_domain_bytes_per_token": 4.406286561874317,
+  "vocab_used_frac_5Mtok": 0.9866943359375,
+  "general_tokens_per_word": 1.4090583752184223,
+  "general_top1k_single_frac": 0.818,
+  "general_top1k_tokens_per_word": 1.302,
+  "general_seg_agree_freq": 0.8838333553255041,
+  "general_renyi_eff_2.5": 0.5414227366583237,
+  "examples": {
+   "\u0120the": [
+    "\u0120the"
+   ],
+   "\u0120because": [
+    "\u0120because"
+   ],
+   "\u0120football": [
+    "\u0120football"
+   ],
+   "\u0120randomized": [
+    "\u0120randomized"
+   ],
+   "\u0120patients": [
+    "\u0120patients"
+   ],
+   "\u0120hypertension": [
+    "\u0120hypertension"
+   ],
+   "\u0120international": [
+    "\u0120international"
+   ],
+   "\u0120placebo": [
+    "\u0120placebo"
+   ]
+  },
+  "domain_tokens_per_word": 1.206122022258151,
+  "domain_top1k_single_frac": 0.994,
+  "domain_top1k_tokens_per_word": 1.006,
+  "domain_seg_agree_freq": 0.9012283507234341,
+  "domain_renyi_eff_2.5": 0.5041397649919053
+ },
+ "RAND_LEARN": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 110047957,
+  "lm_train_bytes_per_token": 1.817727538549398,
+  "eval_general_tokens": 705502,
+  "eval_general_bytes_per_token": 1.8208183676304248,
+  "eval_domain_tokens": 1010503,
+  "eval_domain_bytes_per_token": 1.781494958451385,
+  "vocab_used_frac_5Mtok": 0.910888671875,
+  "general_tokens_per_word": 2.8212396386886267,
+  "general_top1k_single_frac": 0.091,
+  "general_top1k_tokens_per_word": 3.46,
+  "general_seg_agree_freq": 0.24709603381196293,
+  "general_renyi_eff_2.5": 0.3369978597162734,
+  "examples": {
+   "\u0120the": [
+    "\u0120",
+    "the"
+   ],
+   "\u0120because": [
+    "\u0120b",
+    "ecaus",
+    "e"
+   ],
+   "\u0120football": [
+    "\u0120",
+    "f",
+    "oo",
+    "tb",
+    "al",
+    "l"
+   ],
+   "\u0120randomized": [
+    "\u0120",
+    "r",
+    "a",
+    "n",
+    "domized"
+   ],
+   "\u0120patients": [
+    "\u0120",
+    "pa",
+    "t",
+    "ie",
+    "nts"
+   ],
+   "\u0120hypertension": [
+    "\u0120",
+    "h",
+    "ype",
+    "r",
+    "t",
+    "ensi",
+    "o",
+    "n"
+   ],
+   "\u0120international": [
+    "\u0120",
+    "inte",
+    "r",
+    "n",
+    "atio",
+    "n",
+    "al"
+   ],
+   "\u0120placebo": [
+    "\u0120p",
+    "lac",
+    "ebo"
+   ]
+  },
+  "domain_tokens_per_word": 2.978849161122744,
+  "domain_top1k_single_frac": 0.097,
+  "domain_top1k_tokens_per_word": 3.783,
+  "domain_seg_agree_freq": 0.22472839931558689,
+  "domain_renyi_eff_2.5": 0.34210228782646135
+ },
+ "REV_LEARN": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 194614918,
+  "lm_train_bytes_per_token": 1.0278616051416984,
+  "eval_general_tokens": 1250470,
+  "eval_general_bytes_per_token": 1.027286540260862,
+  "eval_domain_tokens": 1748899,
+  "eval_domain_bytes_per_token": 1.0293367427164175,
+  "vocab_used_frac_5Mtok": 0.5015869140625,
+  "general_tokens_per_word": 5.000335880426568,
+  "general_top1k_single_frac": 0.03,
+  "general_top1k_tokens_per_word": 6.385,
+  "general_seg_agree_freq": 0.047215191391864496,
+  "general_renyi_eff_2.5": 0.3240191355354624,
+  "examples": {
+   "\u0120the": [
+    "\u0120",
+    "t",
+    "h",
+    "e"
+   ],
+   "\u0120because": [
+    "\u0120",
+    "b",
+    "e",
+    "c",
+    "a",
+    "u",
+    "s",
+    "e"
+   ],
+   "\u0120football": [
+    "\u0120",
+    "f",
+    "o",
+    "o",
+    "t",
+    "b",
+    "a",
+    "l",
+    "l"
+   ],
+   "\u0120randomized": [
+    "\u0120",
+    "r",
+    "a",
+    "n",
+    "d",
+    "o",
+    "m",
+    "i",
+    "z",
+    "e",
+    "d"
+   ],
+   "\u0120patients": [
+    "\u0120",
+    "p",
+    "a",
+    "t",
+    "i",
+    "e",
+    "n",
+    "t",
+    "s"
+   ],
+   "\u0120hypertension": [
+    "\u0120",
+    "h",
+    "y",
+    "p",
+    "e",
+    "r",
+    "t",
+    "e",
+    "n",
+    "s",
+    "i",
+    "o",
+    "n"
+   ],
+   "\u0120international": [
+    "\u0120",
+    "i",
+    "n",
+    "t",
+    "e",
+    "r",
+    "n",
+    "a",
+    "t",
+    "i",
+    "o",
+    "n",
+    "a",
+    "l"
+   ],
+   "\u0120placebo": [
+    "\u0120",
+    "p",
+    "l",
+    "a",
+    "c",
+    "e",
+    "b",
+    "o"
+   ]
+  },
+  "domain_tokens_per_word": 5.153409843886665,
+  "domain_top1k_single_frac": 0.059,
+  "domain_top1k_tokens_per_word": 7.175,
+  "domain_seg_agree_freq": 0.054423211146156364,
+  "domain_renyi_eff_2.5": 0.3383316663695593
+ },
+ "RAND_ORDER": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 86419016,
+  "lm_train_bytes_per_token": 2.3147359372849143,
+  "eval_general_tokens": 550118,
+  "eval_general_bytes_per_token": 2.335119010830404,
+  "eval_domain_tokens": 803647,
+  "eval_domain_bytes_per_token": 2.240045691702949,
+  "vocab_used_frac_5Mtok": 0.4058837890625,
+  "general_tokens_per_word": 2.1999248267616727,
+  "general_top1k_single_frac": 0.277,
+  "general_top1k_tokens_per_word": 2.81,
+  "general_seg_agree_freq": 0.5704689130669481,
+  "general_renyi_eff_2.5": 0.5493362555714117,
+  "examples": {
+   "\u0120the": [
+    "\u0120the"
+   ],
+   "\u0120because": [
+    "\u0120b",
+    "ec",
+    "au",
+    "se"
+   ],
+   "\u0120football": [
+    "\u0120foot",
+    "ba",
+    "ll"
+   ],
+   "\u0120randomized": [
+    "\u0120ran",
+    "dom",
+    "i",
+    "ze",
+    "d"
+   ],
+   "\u0120patients": [
+    "\u0120pa",
+    "t",
+    "ien",
+    "ts"
+   ],
+   "\u0120hypertension": [
+    "\u0120hy",
+    "pe",
+    "r",
+    "te",
+    "ns",
+    "io",
+    "n"
+   ],
+   "\u0120international": [
+    "\u0120in",
+    "te",
+    "r",
+    "na",
+    "t",
+    "io",
+    "na",
+    "l"
+   ],
+   "\u0120placebo": [
+    "\u0120pl",
+    "ac",
+    "eb",
+    "o"
+   ]
+  },
+  "domain_tokens_per_word": 2.3696625937607676,
+  "domain_top1k_single_frac": 0.246,
+  "domain_top1k_tokens_per_word": 3.227,
+  "domain_seg_agree_freq": 0.5674385456515914,
+  "domain_renyi_eff_2.5": 0.5727870487974643
+ },
+ "REV_ORDER": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 116085887,
+  "lm_train_bytes_per_token": 1.7231827844843879,
+  "eval_general_tokens": 742931,
+  "eval_general_bytes_per_token": 1.7290852044133305,
+  "eval_domain_tokens": 1053119,
+  "eval_domain_bytes_per_token": 1.709404160403525,
+  "vocab_used_frac_5Mtok": 0.205078125,
+  "general_tokens_per_word": 2.970902358760281,
+  "general_top1k_single_frac": 0.095,
+  "general_top1k_tokens_per_word": 3.712,
+  "general_seg_agree_freq": 0.28052413340850657,
+  "general_renyi_eff_2.5": 0.4397470714973086,
+  "examples": {
+   "\u0120the": [
+    "\u0120",
+    "th",
+    "e"
+   ],
+   "\u0120because": [
+    "\u0120",
+    "be",
+    "ca",
+    "u",
+    "se"
+   ],
+   "\u0120football": [
+    "\u0120f",
+    "oo",
+    "t",
+    "ba",
+    "ll"
+   ],
+   "\u0120randomized": [
+    "\u0120ran",
+    "dom",
+    "i",
+    "ze",
+    "d"
+   ],
+   "\u0120patients": [
+    "\u0120pa",
+    "t",
+    "ie",
+    "n",
+    "ts"
+   ],
+   "\u0120hypertension": [
+    "\u0120",
+    "hy",
+    "pe",
+    "r",
+    "te",
+    "ns",
+    "io",
+    "n"
+   ],
+   "\u0120international": [
+    "\u0120i",
+    "n",
+    "te",
+    "r",
+    "na",
+    "t",
+    "io",
+    "na",
+    "l"
+   ],
+   "\u0120placebo": [
+    "\u0120p",
+    "la",
+    "c",
+    "eb",
+    "o"
+   ]
+  },
+  "domain_tokens_per_word": 3.1043523844022136,
+  "domain_top1k_single_frac": 0.101,
+  "domain_top1k_tokens_per_word": 4.273,
+  "domain_seg_agree_freq": 0.35077938868126785,
+  "domain_renyi_eff_2.5": 0.48809666157680975
+ },
+ "RAND_LEARN_t1": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 112681657,
+  "lm_train_bytes_per_token": 1.7752419277966422,
+  "eval_general_tokens": 728158,
+  "eval_general_bytes_per_token": 1.7641651949164878,
+  "eval_domain_tokens": 993505,
+  "eval_domain_bytes_per_token": 1.8119747761712321,
+  "vocab_used_frac_5Mtok": 0.9066162109375,
+  "general_tokens_per_word": 2.911831388025863,
+  "general_top1k_single_frac": 0.092,
+  "general_top1k_tokens_per_word": 3.349,
+  "general_seg_agree_freq": 0.16716448944175874,
+  "general_renyi_eff_2.5": 0.3367792955809212,
+  "examples": {
+   "\u0120the": [
+    "\u0120",
+    "th",
+    "e"
+   ],
+   "\u0120because": [
+    "\u0120beca",
+    "use"
+   ],
+   "\u0120football": [
+    "\u0120f",
+    "oo",
+    "tbal",
+    "l"
+   ],
+   "\u0120randomized": [
+    "\u0120",
+    "r",
+    "a",
+    "nd",
+    "om",
+    "i",
+    "zed"
+   ],
+   "\u0120patients": [
+    "\u0120pat",
+    "i",
+    "en",
+    "ts"
+   ],
+   "\u0120hypertension": [
+    "\u0120",
+    "h",
+    "yp",
+    "erten",
+    "s",
+    "ion"
+   ],
+   "\u0120international": [
+    "\u0120",
+    "i",
+    "n",
+    "ter",
+    "nati",
+    "onal"
+   ],
+   "\u0120placebo": [
+    "\u0120plac",
+    "eb",
+    "o"
+   ]
+  },
+  "domain_tokens_per_word": 2.9287904087925294,
+  "domain_top1k_single_frac": 0.098,
+  "domain_top1k_tokens_per_word": 3.657,
+  "domain_seg_agree_freq": 0.197007312382753,
+  "domain_renyi_eff_2.5": 0.3615602223945177
+ },
+ "RAND_ORDER_t1": {
+  "vocab_size": 8192,
+  "lm_train_tokens": 91343306,
+  "lm_train_bytes_per_token": 2.1899492229895863,
+  "eval_general_tokens": 585835,
+  "eval_general_bytes_per_token": 2.192752225455973,
+  "eval_domain_tokens": 827310,
+  "eval_domain_bytes_per_token": 2.175975148372436,
+  "vocab_used_frac_5Mtok": 0.4134521484375,
+  "general_tokens_per_word": 2.342741983853748,
+  "general_top1k_single_frac": 0.272,
+  "general_top1k_tokens_per_word": 2.75,
+  "general_seg_agree_freq": 0.46994469968691144,
+  "general_renyi_eff_2.5": 0.4702319075359751,
+  "examples": {
+   "\u0120the": [
+    "\u0120",
+    "th",
+    "e"
+   ],
+   "\u0120because": [
+    "\u0120",
+    "be",
+    "ca",
+    "use"
+   ],
+   "\u0120football": [
+    "\u0120f",
+    "oo",
+    "t",
+    "ba",
+    "ll"
+   ],
+   "\u0120randomized": [
+    "\u0120r",
+    "and",
+    "om",
+    "ize",
+    "d"
+   ],
+   "\u0120patients": [
+    "\u0120p",
+    "ati",
+    "en",
+    "ts"
+   ],
+   "\u0120hypertension": [
+    "\u0120hyp",
+    "ert",
+    "ension"
+   ],
+   "\u0120international": [
+    "\u0120i",
+    "n",
+    "tern",
+    "ati",
+    "ona",
+    "l"
+   ],
+   "\u0120placebo": [
+    "\u0120placebo"
+   ]
+  },
+  "domain_tokens_per_word": 2.4393496308468876,
+  "domain_top1k_single_frac": 0.235,
+  "domain_top1k_tokens_per_word": 3.243,
+  "domain_seg_agree_freq": 0.50298473617406,
+  "domain_renyi_eff_2.5": 0.5241445993580509
+ }
+}

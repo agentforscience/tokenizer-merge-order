@@ -1,0 +1,22 @@
+\begin{table}[t]
+    \centering
+    \caption{Held-out bits-per-byte (lower is better; mean of 2 pre-training seeds) and relative change against \freq with 95\% paired-bootstrap CIs. All 10 comparisons are significant after Holm correction ($p_{\text{Holm}} = 0.032$ for \domain on general text, $0.0025$ for all others). The seed standard deviation is at most 0.002 on general text and 0.016 on biomedical text. Best value per column in \textbf{bold}.}
+    \label{tab:bpb}
+    \small
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        & \multicolumn{2}{c}{\textbf{General} (\wikitext)} & \multicolumn{2}{c}{\textbf{Biomedical} (PubMed)} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        \textbf{Tokenizer} & \bpb & $\Delta$ vs \freq [95\% CI] & \bpb & $\Delta$ vs \freq [95\% CI] \\
+        \midrule
+        \freq      & \textbf{1.348} & ---                        & 1.269          & --- \\
+        \domain    & 1.353          & +0.41\% [0.23, 0.60]       & \textbf{1.258} & \textbf{$-$0.83\% [$-$1.04, $-$0.60]} \\
+        \midrule
+        \randlearn & 1.386          & +2.84\% [2.39, 3.28]       & 1.305          & +2.85\% [2.57, 3.12] \\
+        \revlearn  & 1.426          & +5.78\% [5.11, 6.63]       & 1.394          & +9.84\% [9.49, 10.19] \\
+        \midrule
+        \randorder & 1.371          & +1.76\% [1.46, 2.07]       & 1.314          & +3.58\% [3.33, 3.83] \\
+        \revorder  & 1.394          & +3.43\% [2.92, 4.00]       & 1.341          & +5.71\% [5.44, 5.98] \\
+        \bottomrule
+    \end{tabular}
+\end{table}

@@ -1,0 +1,12 @@
+Byte-pair encoding (BPE) tokenizers are trained once and then frozen into every model built on them, yet the order of their merges is almost never varied.
+We ask whether merge order matters, both the order in which merges are \emph{learned} and the priority with which they are \emph{applied}.
+We train six byte-level BPE tokenizers with the same 8,192-entry vocabulary size on the same corpus; they differ only in merge order.
+Two of them keep the exact vocabulary of standard frequency BPE and change only merge priority.
+For each tokenizer we pre-train identical 23M-parameter language models on the same 200\,MB of general and biomedical text, and then fine-tune them on three classification tasks.
+The answer depends on what we measure.
+For language modeling, merge order clearly matters (all 10 comparisons with Holm-adjusted $p \le 0.032$): the four non-frequency orders raise bits-per-byte by 1.8--5.8\% on general text and by 2.8--9.8\% on biomedical text.
+Even reordering the \emph{same} merges costs 1.8--5.7\%, because short merges fire first and block long ones, leaving 59--79\% of the vocabulary unused.
+Compression explains this effect: bytes-per-token perfectly rank-predicts general-text bits-per-byte across tokenizers (Spearman $\rho=-1.0$).
+For fine-tuned classification, merge order shows no detectable effect: all tokenizers are within $-0.8\%$ to $+1.6\%$ of standard BPE, and none of the 15 comparisons is significant.
+A domain-weighted merge order gives a small domain gain (0.8\% bits-per-byte) and no classification gain.
+Merge order is therefore not a cosmetic detail for generative modeling, but small fine-tuned classifiers are robust to it.

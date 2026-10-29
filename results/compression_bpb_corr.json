@@ -1,0 +1,10 @@
+{
+ "general": {
+  "spearman_bytes_per_token_vs_bpb": -1.0,
+  "p": 0.0
+ },
+ "domain": {
+  "spearman_bytes_per_token_vs_bpb": -0.942857142857143,
+  "p": 0.004804664723032055
+ }
+}

@@ -1,0 +1,34 @@
+\section{Related Work}
+\label{sec:related}
+
+\para{Comparing tokenizers.}
+BPE started as a compression algorithm~\citep{gage1994new} and was adapted to subword segmentation for neural machine translation~\citep{sennrich2016neural}.
+GPT-2 later made it byte-level~\citep{radford2019language}.
+Several studies compare tokenizer families.
+\citet{bostrom2020byte} find that unigram language-model tokenization~\citep{kudo2018subword} matches or beats BPE for pre-training.
+\citet{ali2024tokenizer} show that tokenizer choice affects the downstream performance and training cost of multilingual LLMs.
+\citet{schmidt2024tokenization} argue that tokenization is more than compression, because tokenizers with similar compression can give different downstream results.
+These studies vary the algorithm, the vocabulary, and often the training data together.
+Unlike them, we fix the algorithm, the corpus, and the vocabulary size, and we vary only merge order.
+Our same-vocabulary controls go one step further and fix the vocabulary itself.
+
+\para{Compression and intrinsic measures.}
+\citet{galle2019investigating} link the success of BPE to shorter sequences.
+\citet{goldman2024unpacking} show that compression correlates with downstream quality, especially for generation.
+\citet{zouhar2023tokenization} propose R\'enyi efficiency as a better predictor of translation quality than compression.
+We test both measures on tokenizers that differ only in merge order.
+Bytes-per-token rank-predicts \bpb perfectly in our setting, while R\'enyi efficiency is a much weaker predictor.
+We also find that the link between compression and quality holds for language modeling but not for fine-tuned classification.
+
+\para{Stochastic and alternative segmentation.}
+BPE-dropout~\citep{provilkov2020bpe} and subword regularization~\citep{kudo2018subword} randomly perturb segmentation during training to improve robustness.
+These methods change segmentation at training time while keeping the standard segmentation at test time.
+Our \randorder and \revorder tokenizers instead fix a different, deterministic merge priority for both training and testing.
+At the extreme, our \revlearn tokenizer becomes almost character-level, which connects to byte-level models such as ByT5~\citep{xue2022byt5}.
+Unlike ByT5, we keep the model and context length fixed, so a shorter-unit tokenizer sees less text per window.
+
+\para{Domain-specific vocabularies.}
+Domain models such as SciBERT~\citep{beltagy2019scibert} and PubMedBERT~\citep{gu2021domain} build vocabularies from in-domain text, and \citet{gururangan2020don} show that continued domain pre-training helps.
+These works change the vocabulary and the pre-training data together.
+Our \domain tokenizer changes only merge order: it up-weights biomedical counts in the same mixed corpus.
+This isolates how much of a domain gain comes from the tokenizer alone.

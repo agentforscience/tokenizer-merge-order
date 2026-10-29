@@ -1,0 +1,4 @@
+2.0 results/lm/RAND_ORDER_t1_s0/metrics.json MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_ORDER_t1 0
+2.0 results/lm/RAND_LEARN_t1_s0/metrics.json MICRO_BS=8 .venv/bin/python -u src/train_lm.py RAND_LEARN_t1 0
+2.0 results/ft/RAND_ORDER_t1_s0/done.json REQUIRES=results/lm/RAND_ORDER_t1_s0/metrics.json .venv/bin/python -u src/eval_docs.py RAND_ORDER_t1 0 && .venv/bin/python -u src/finetune.py RAND_ORDER_t1 0
+2.0 results/ft/RAND_LEARN_t1_s0/done.json REQUIRES=results/lm/RAND_LEARN_t1_s0/metrics.json .venv/bin/python -u src/eval_docs.py RAND_LEARN_t1 0 && .venv/bin/python -u src/finetune.py RAND_LEARN_t1 0

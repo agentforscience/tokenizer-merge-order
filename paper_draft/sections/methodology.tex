@@ -1,0 +1,146 @@
+\section{Method}
+\label{sec:method}
+
+We first define the two kinds of merge order (\secref{sec:formulation}).
+We then describe our six tokenizers (\secref{sec:tokenizers}), the data and models (\secref{sec:setup}), and the evaluation (\secref{sec:eval}).
+
+\subsection{Two kinds of merge order}
+\label{sec:formulation}
+
+\para{Learning order.}
+Let $\gW$ be the multiset of pre-tokens in the tokenizer corpus, each with count $c(w)$ and each split into a sequence of symbols, initially bytes.
+At step $t$, let $C_t(a,b)$ be the number of times the adjacent pair $(a,b)$ occurs, weighted by $c(w)$.
+Standard BPE adds the merge $m_t = \argmax_{(a,b)} C_t(a,b)$, replaces each occurrence of $(a,b)$ with a new symbol $ab$, and repeats.
+We replace the $\argmax$ with a general \emph{selection rule} $\sigma$, which picks a pair from the current counts (\algref{alg:bpe}).
+The rule decides \emph{which} merges end up in the vocabulary.
+
+\para{Application order.}
+At encoding time, a BPE tokenizer assigns each merge a rank $\pi(m)$.
+Given a pre-token, it repeatedly applies the lowest-rank merge that matches any adjacent pair, until no merge applies.
+Standard BPE uses the learning order as the rank, $\pi(m_t)=t$.
+Any other rank gives a different segmentation with the \emph{same} vocabulary.
+We only use ranks that respect dependencies: a merge that creates a symbol always ranks before every merge that uses that symbol as input.
+This keeps every merge reachable in principle.
+In practice, many merges never fire, because a short merge applied early can consume the bytes that a longer merge needs (\secref{sec:intrinsics}).
+
+\begin{algorithm}[t]
+\caption{BPE training with a general selection rule}
+\label{alg:bpe}
+\begin{algorithmic}[1]
+\INPUT Pre-token counts $c(w)$; number of merges $K$; selection rule $\sigma$; minimum pair count $\tau$
+\OUTPUT Ordered merge list $(m_1,\dots,m_K)$
+\State Split every pre-token $w$ into bytes; $\gV \gets$ the 256 byte symbols
+\For{$t = 1,\dots,K$}
+    \State $C_t(a,b) \gets \sum_{w} c(w)\cdot \#\{(a,b) \text{ adjacent in } w\}$ \Comment{updated incrementally}
+    \State $m_t \gets \sigma(C_t)$ \Comment{\freq: $\argmax$; \revlearn: $\argmin$ over $C_t \ge \tau$}
+    \State Replace each occurrence of $m_t=(a,b)$ by the new symbol $ab$; $\gV \gets \gV \cup \{ab\}$
+\EndFor
+\State \Return $(m_1,\dots,m_K)$ \Comment{rank $\pi(m_t)=t$ unless reordered}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Six tokenizers}
+\label{sec:tokenizers}
+
+\Tabref{tab:tokenizers} lists our tokenizers.
+All of them are byte-level BPE with GPT-2 pre-tokenization~\citep{radford2019language} and 8,192 vocabulary entries (256 bytes plus 7,936 merges).
+We train them with our own BPE implementation on a 50\,MB tokenizer corpus: 37.5\,MB of \wikitext and 12.5\,MB of PubMed abstracts, keeping pre-tokens with count $\ge 2$.
+To check our trainer, we compare its \freq merges with the HuggingFace \texttt{tokenizers} \texttt{BpeTrainer}.
+The merge sets overlap 100\% at 500, 1k, 4k, and all merges.
+We export every tokenizer to HuggingFace \texttt{tokenizers}, whose BPE model applies merges by rank.
+
+\para{Learning-order family.}
+\freq is standard BPE.
+\domain multiplies the counts of PubMed pre-tokens by 8 before training, which favors biomedical merges.
+\randlearn picks a pair uniformly at random among pairs with count $\ge 50$.
+\revlearn picks the \emph{least} frequent pair among pairs with count $\ge 50$.
+The threshold $\tau=50$ keeps both rules from merging pairs that occur only a handful of times.
+
+\para{Application-order family.}
+\randorder and \revorder keep \freq's exact merge list and vocabulary, and change only the rank $\pi$.
+\randorder draws a random dependency-respecting order.
+\revorder builds a dependency-respecting order that puts the latest-learned merges first whenever their inputs are available.
+These two tokenizers isolate merge sequence in its pure form: any difference from \freq comes from priority alone.
+
+\para{Robustness tokenizers.}
+To check that our random results do not depend on one lucky or unlucky draw, we train a second random draw (seed 1) of \randlearn and \randorder, which we denote with the suffix \textsc{-t1}.
+
+\begin{table}[t]
+    \centering
+    \caption{The six merge-order conditions. All tokenizers have 8,192 entries and are trained on the same 50\,MB corpus. The application-order tokenizers share \freq's merges and vocabulary exactly.}
+    \label{tab:tokenizers}
+    \small
+    \begin{tabular}{@{}llp{8.2cm}@{}}
+        \toprule
+        \textbf{Tokenizer} & \textbf{Family} & \textbf{Rule} \\
+        \midrule
+        \freq      & standard          & Merge the most frequent pair (standard BPE). \\
+        \domain    & learning order    & Most frequent pair, with PubMed pre-token counts $\times 8$. \\
+        \randlearn & learning order    & Uniformly random pair among pairs with count $\ge 50$. \\
+        \revlearn  & learning order    & Least frequent pair among pairs with count $\ge 50$. \\
+        \randorder & application order & \freq's merges; random dependency-respecting priority. \\
+        \revorder  & application order & \freq's merges; dependency-respecting reversed priority (latest-learned first). \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Data and models}
+\label{sec:setup}
+
+\para{Pre-training data.}
+Every language model sees the same 200\,MB of text: 150\,MB of \wikitext training articles~\citep{merity2017pointer} and 50\,MB of PubMed-200k-RCT abstracts~\citep{dernoncourt2017pubmed}.
+We remove 36,101 PubMed-200k sentences that also appear in the PubMed-20k validation or test sets, to avoid leakage into evaluation.
+For held-out language-model evaluation, we use the \wikitext test split (60 articles, 1.28\,MB) and 1,000 PubMed-20k-RCT test abstracts (1.8\,MB).
+
+\para{Classification tasks.}
+We fine-tune on two general tasks and one domain task.
+\sst~\citep{socher2013recursive} is binary sentiment classification; we train on 20k sentences and test on the 872-sentence validation split.
+\agnews~\citep{zhang2015character} is 4-class topic classification; we use 20k training and 3k test items.
+\pubmedrct~\citep{dernoncourt2017pubmed} is 5-class sentence-role classification in abstracts (\eg \textsc{Methods}, \textsc{Results}); we use 20k training and 3k test sentences from PubMed-20k.
+
+\para{Model and pre-training.}
+We use the same GPT-style decoder for every tokenizer: 6 layers, hidden size 512, 8 attention heads, a 512-token context, and tied input and output embeddings (23.3M parameters).
+We train for one epoch over the same 200\,MB text with AdamW~\citep{loshchilov2019decoupled} (learning rate $10^{-3}$, $\beta=(0.9,0.95)$, weight decay 0.1), 200 warm-up steps followed by cosine decay, 32k tokens per step, bf16, and gradient clipping at 1.0.
+We use two pre-training seeds per tokenizer and one seed for each \textsc{-t1} tokenizer, for 14 language models in total.
+
+We hold the \emph{text} fixed, not the compute.
+A tokenizer that compresses poorly turns the same text into more tokens, and so receives more gradient steps.
+We chose this design because it matches the natural question ``which tokenizer should we use for this corpus?''.
+It also favors the poor compressors, as we discuss in \secref{sec:robustness}.
+
+\para{Fine-tuning.}
+We mean-pool the final hidden states and add a linear classification head, and we fine-tune all parameters.
+We use the same hyper-parameters for every tokenizer: 2 epochs, batch size 32, learning rate $2\times10^{-4}$ with 6\% warm-up and linear decay, and inputs truncated to 256 tokens.
+We do not tune per condition.
+Each (tokenizer, task) pair gets 2 fine-tuning seeds for each of the 2 pre-trained models, for 4 runs per pair and 84 fine-tuning runs in total.
+
+\subsection{Evaluation}
+\label{sec:eval}
+
+\para{Bits-per-byte.}
+Per-token perplexity cannot be compared across tokenizers, because the tokens differ.
+We therefore report bits-per-byte, which normalizes by the text itself~\citep{gao2020pile}:
+\begin{equation}
+    \text{\bpb} = \frac{\sum_{i} -\log_2 p_\theta(x_i \mid x_{<i})}{\sum_{i} |\mathrm{bytes}(x_i)|},
+    \label{eq:bpb}
+\end{equation}
+where $x_i$ ranges over the predicted tokens and $|\mathrm{bytes}(x_i)|$ is the UTF-8 length of token $x_i$.
+Lower is better.
+We report the relative change against \freq, $\Delta = (\text{\bpb} - \text{\bpb}_{\freq}) / \text{\bpb}_{\freq}$.
+
+\para{Classification.}
+We report accuracy and macro-F1, and the relative change in accuracy against \freq.
+
+\para{Tokenizer intrinsics.}
+On the held-out text, we measure:
+bytes per token;
+tokens per word;
+the share of the 1,000 most frequent words encoded as a single token;
+R\'enyi efficiency with $\alpha=2.5$~\citep{zouhar2023tokenization};
+vocabulary utilization, \ie the share of vocabulary entries that appear in 5M tokens of encoded text;
+and segmentation agreement with \freq.
+
+\para{Statistics.}
+For \bpb, we compute 95\% confidence intervals of the relative change with a paired bootstrap over held-out documents (10k resamples)~\citep{efron1994introduction}, and test significance with a paired sign-flip permutation test on per-document \bpb.
+For accuracy, we bootstrap and permute over test items, using per-item correctness averaged over the 4 runs.
+We apply the Holm correction~\citep{holm1979simple} across all 25 comparisons against \freq (10 for \bpb and 15 for accuracy).

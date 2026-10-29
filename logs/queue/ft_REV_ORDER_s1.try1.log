@@ -1,0 +1,8 @@
+REV_ORDER 1 eval_general bpb 1.3949813838017915
+REV_ORDER 1 eval_domain bpb 1.3425655235031406
+REV_ORDER 1 sst2 0 acc=0.7890 f1=0.7885 trunc=0.000 82s
+REV_ORDER 1 sst2 1 acc=0.8016 f1=0.8014 trunc=0.000 84s
+REV_ORDER 1 agnews 0 acc=0.8830 f1=0.8835 trunc=0.019 139s
+REV_ORDER 1 agnews 1 acc=0.8890 f1=0.8895 trunc=0.019 138s
+REV_ORDER 1 pubmed 0 acc=0.8090 f1=0.7398 trunc=0.005 126s
+REV_ORDER 1 pubmed 1 acc=0.8120 f1=0.7505 trunc=0.005 105s

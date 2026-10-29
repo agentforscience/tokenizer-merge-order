@@ -1,0 +1,12 @@
+3.0 results/lm/REV_LEARN_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py REV_LEARN 0
+3.0 results/lm/REV_ORDER_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py REV_ORDER 0
+3.0 results/lm/RAND_LEARN_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py RAND_LEARN 0
+3.0 results/lm/RAND_ORDER_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py RAND_ORDER 0
+3.0 results/lm/DOMAIN_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py DOMAIN 0
+3.0 results/lm/FREQ_s0/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py FREQ 0
+3.0 results/lm/REV_LEARN_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py REV_LEARN 1
+3.0 results/lm/REV_ORDER_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py REV_ORDER 1
+3.0 results/lm/RAND_LEARN_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py RAND_LEARN 1
+3.0 results/lm/RAND_ORDER_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py RAND_ORDER 1
+3.0 results/lm/DOMAIN_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py DOMAIN 1
+3.0 results/lm/FREQ_s1/metrics.json MICRO_BS=16 .venv/bin/python -u src/train_lm.py FREQ 1

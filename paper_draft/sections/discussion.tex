@@ -1,0 +1,64 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\para{{\bf Does merge order matter?} Yes, but through compression.}
+Our results confirm that merge sequence matters for language modeling.
+It matters through segmentation quality, not because a model is sensitive to merge order as such.
+Every \bpb gap in our study follows how many bytes each token carries.
+The same-vocabulary controls make this point most clearly.
+\randorder and \revorder have exactly \freq's merges, so they \emph{could} produce the same long tokens.
+Their different priority prevents this, leaving 59--79\% of the vocabulary unused.
+A merge list is therefore not just a set of tokens: the order is part of the tokenizer, and changing it can quietly turn an 8k vocabulary into a 2k one.
+Anyone who edits a merge list, for example by inserting domain merges at the top, should check vocabulary utilization and compression afterward.
+
+\para{{\bf Why is fine-tuning robust?}}
+With 20k labeled examples, a 23M-parameter model fine-tuned from any of our language models reaches the same accuracy within about 1\%.
+We see two likely reasons.
+First, short-text classification depends on lexical and semantic cues that the model can recover from any reasonable segmentation, even a nearly character-level one.
+Second, plentiful labeled data lets fine-tuning make up for weaker pre-training.
+This is consistent with \citet{goldman2024unpacking}, who find that compression matters more for generation than for classification.
+It also suggests that work like \citet{schmidt2024tokenization}, which finds downstream differences between tokenizers with similar compression, may need generative or low-data tasks to see large effects.
+
+\para{{\bf Why is domain weighting so weak?}}
+Up-weighting PubMed counts by 8 kept 99\% of the top-1k biomedical words whole, up from 92\%, and improved biomedical compression by 7\%.
+This bought only 0.8\% biomedical \bpb, at a cost of 0.4\% general \bpb, and no classification gain.
+The reason is that the standard tokenizer corpus is already 25\% biomedical, so \freq already covers most biomedical vocabulary.
+The hypothesized 5--12\% domain advantage would likely require a much more under-represented domain or a much smaller vocabulary.
+
+\para{Practical implications.}
+For small models fine-tuned on classification with plenty of labels, merge order is close to irrelevant, so practitioners can re-weight or reorder merges without measurable cost.
+For language modeling or generation, merge order matters, and the rule is simple: prefer the order that keeps common words whole and gives the best bytes per token on the target text, even when the vocabulary is the same.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\para{Scale.}
+Our models have 23M parameters, are trained on 200\,MB of text (51--195M tokens), and use a single vocabulary size (8,192).
+Larger models, longer training, or larger vocabularies may change the size of the effects.
+In particular, we do not know whether the \bpb gaps grow or shrink with scale.
+
+\para{Equal-text design.}
+Our conditions differ in tokens and compute per byte.
+We hold text fixed, which is the natural ``same corpus'' comparison.
+An equal-compute or equal-byte-context design would separate these factors further.
+Because the poor compressors received more compute, we expect such a design to widen, not close, the \bpb gaps.
+
+\para{Tasks.}
+Our three tasks are short-text classification with plentiful labels, which likely makes them insensitive to tokenization.
+Generation, few-shot prompting, spelling or arithmetic tasks, and low-resource fine-tuning may reveal effects that our tasks hide.
+
+\para{Seeds and domains.}
+We use 2 pre-training seeds per tokenizer (1 for the \textsc{-t1} variants), one tokenizer corpus, and one target domain (biomedical).
+
+\para{Definitions of order.}
+Our definitions of ``random'' and ``reverse'' are design choices: a count threshold of 50 for the learning rules, and dependency-respecting reorderings for application order.
+Other definitions, such as sampling pairs in proportion to frequency, could give milder degradation.
+
+\para{Fixed fine-tuning hyper-parameters.}
+We use the same fine-tuning hyper-parameters for every tokenizer.
+This is fair, but it could slightly disadvantage tokenizers that produce longer sequences, for example through truncation at 256 tokens.
+
+\para{Broader impact.}
+This study uses public datasets and small models, and it trains no system intended for deployment.
+Our findings may help practitioners avoid tokenizer edits that silently reduce compression and waste vocabulary, which in turn wastes compute.
+We do not foresee direct negative uses.

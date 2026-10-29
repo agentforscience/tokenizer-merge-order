@@ -1,0 +1,8 @@
+DOMAIN 1 eval_general bpb 1.3540990120785803
+DOMAIN 1 eval_domain bpb 1.2565690273363899
+DOMAIN 1 sst2 0 acc=0.8108 f1=0.8105 trunc=0.000 31s
+DOMAIN 1 sst2 1 acc=0.8108 f1=0.8107 trunc=0.000 31s
+DOMAIN 1 agnews 0 acc=0.8847 f1=0.8851 trunc=0.002 54s
+DOMAIN 1 agnews 1 acc=0.8903 f1=0.8909 trunc=0.002 54s
+DOMAIN 1 pubmed 0 acc=0.8190 f1=0.7523 trunc=0.000 42s
+DOMAIN 1 pubmed 1 acc=0.8173 f1=0.7560 trunc=0.000 42s

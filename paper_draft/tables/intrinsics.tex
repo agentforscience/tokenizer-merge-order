@@ -1,0 +1,22 @@
+\begin{table}[t]
+    \centering
+    \caption{Tokenizer intrinsics on held-out general / biomedical text. ``Top-1k whole'' is the share of the 1,000 most frequent words encoded as a single token. ``Vocab used'' is the share of the 8,192 entries that occur in 5M encoded tokens. ``Agree'' is segmentation agreement with \freq on general text. The application-order tokenizers share \freq's vocabulary but use only 21--41\% of it. Best value per column in \textbf{bold}.}
+    \label{tab:intrinsics}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccccc@{}}
+        \toprule
+        & \multicolumn{2}{c}{\textbf{Bytes / token} $\uparrow$} & \multicolumn{2}{c}{\textbf{Top-1k whole} $\uparrow$} & \multicolumn{1}{c}{\textbf{R\'enyi eff.}} & \textbf{Vocab} & \textbf{Agree} & \textbf{LM train} \\
+        \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+        \textbf{Tokenizer} & Gen. & Dom. & Gen. & Dom. & Gen. & \textbf{used} & \textbf{w/ \freq} & \textbf{tokens} \\
+        \midrule
+        \freq      & \textbf{3.87} & 4.11          & \textbf{0.89} & 0.92          & 0.52 & \textbf{0.99} & 1.00 & \textbf{51.0M} \\
+        \domain    & 3.65          & \textbf{4.41} & 0.82          & \textbf{0.99} & 0.54 & \textbf{0.99} & 0.88 & 52.5M \\
+        \midrule
+        \randlearn & 1.82          & 1.78          & 0.09          & 0.10          & 0.34 & 0.91 & 0.25 & 110.0M \\
+        \revlearn  & 1.03          & 1.03          & 0.03          & 0.06          & 0.32 & 0.50 & 0.05 & 194.6M \\
+        \midrule
+        \randorder & 2.34          & 2.24          & 0.28          & 0.25          & \textbf{0.55} & 0.41 & 0.57 & 86.4M \\
+        \revorder  & 1.73          & 1.71          & 0.10          & 0.10          & 0.44 & 0.21 & 0.28 & 116.1M \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
